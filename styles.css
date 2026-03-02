@@ -1,0 +1,30 @@
+.regtitle{
+    text-align: center;
+    border: 2px, solid, black;
+    font-size: 32px;
+}
+
+.logtitle{
+    text-align: center;
+    border: 2px, solid, black;
+    font-size: 32px;
+}
+
+.login{
+    text-align: center;
+}
+
+.register{
+    text-align: center;
+}
+
+#gomb{
+    /* ezt igazitsd feljebb */
+    width: 99px;
+    border: 1px, solid, black;
+    margin-left: 30%;
+}
+
+#register{
+
+}
