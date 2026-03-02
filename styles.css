@@ -199,12 +199,12 @@
     top: 8px;
     right: 8px;
     opacity: 0.6;
-    transition: opacity 0.2s ease, transform 0.2s ease;
+    transition: opacity 0.2s ease;
     filter: brightness(0) invert(1);
+    z-index: 10;
 }
 .ad-container .close-btn:hover {
     opacity: 1;
-    transform: rotate(90deg);
 }
 .ad-container img:not(.close-btn) {
     width: 100%;
