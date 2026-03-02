@@ -29,7 +29,7 @@
 /* Form Container */
 .form-container {
     width: 320px;
-    background-color: rgba(26, 26, 26, 0.95);
+    background-color: rgba(26, 26, 26, 0.95) !important;
     padding: 2rem;
     color: rgba(243, 244, 246, 1);
     box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
