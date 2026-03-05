@@ -24,5 +24,4 @@ function loadAd() {
         `;
     }
 }
-
 window.onload = loadAd;
