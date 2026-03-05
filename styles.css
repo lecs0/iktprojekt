@@ -458,11 +458,14 @@
 .hero-play {
     background: rgba(243, 244, 246, 1);
     color: rgba(10, 10, 10, 1);
+    text-align: center;
+    text-decoration: none;
 }
 
 .hero-more {
     background: rgba(75, 85, 99, 0.7);
     color: rgba(243, 244, 246, 1);
+    text-decoration: none;
 }
 
 .content-rail {
