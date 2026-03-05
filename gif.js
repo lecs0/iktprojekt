@@ -16,5 +16,4 @@
         clearTimeout(timeoutId);
     }
     text.addEventListener('click', showGif);
-    overlay.addEventListener('click', hideGif);
 })();
