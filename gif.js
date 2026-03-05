@@ -8,7 +8,7 @@
         img.src = gifUrl;
         overlay.style.display = 'flex';
         clearTimeout(timeoutId);
-        timeoutId = setTimeout(hideGif, 7000);
+        timeoutId = setTimeout(hideGif, 6000);
     }
     function hideGif(){
         overlay.style.display = 'none';
