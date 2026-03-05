@@ -1,5 +1,5 @@
 (function(){
-    const text = document.getElementById('private-text');
+    const text = document.getElementById('gif-text');
     const overlay = document.getElementById('gif-overlay');
     const img = document.getElementById('gif-image');
     const gifUrl = 'https://media0.giphy.com/media/v1.Y2lkPTc5MGI3NjExanNsODUyOGFuYmJiMWVxbTVjbHdnaHdsbmxjdTdvN3N6cTU0YWx6cCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q/lBRdMWIFYAan9Hi5pV/giphy.gif';

@@ -604,3 +604,15 @@
         height: 132px;
     }
 }
+
+#forgor{
+    text-decoration: none;
+    text-align: center;
+    padding-right: 70px;
+}
+
+#gif-text{
+    text-align: center;
+    padding-top: 15px;
+    margin-bottom: 0px;
+}
