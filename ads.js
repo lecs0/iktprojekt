@@ -3,7 +3,7 @@ const ads = [
     { text: "Click here to WIN BIG!", link: "https://youtu.be/psha3ecS5K8", image: "imgs/ad2.png" },
     { text: "Hurry! BUDAPEST NYUGATI PÁLYAUDVAR GAMEPLAY 2026!", link: "https://youtu.be/mZoHGuK_Psg", image: "imgs/ad3.png" },
     { text: "Jeffrey meghivott a szigetére! Klikk az elfogadáshoz", link: "https://youtu.be/yw_LlM6s5aI", image: "imgs/ad4.jpg"},
-    { text: "NVCasino 400.000,000Ft bónusz és 400 ingyen pörgetés. Játsz most!", link: "https://www.youtube.com/watch?v=yUqFpPj7jOs", image: "imgs/nvcasino-2-6814b768bc19b7.60142442.webp"}
+    { text: "NV Casino 400.000,000Ft bónusz és 400 ingyen pörgetés. Játssz most!", link: "https://www.youtube.com/watch?v=yUqFpPj7jOs", image: "imgs/nvcasino-2-6814b768bc19b7.60142442.webp"}
 ];
 
 function getRandomAd() {

@@ -107,7 +107,7 @@
       #1a1a1a
     );
     background-size: 40px 40px;
-    animation: move 4s linear infinite;
+    animation: move 8s linear infinite;
   }
   
   @keyframes move {

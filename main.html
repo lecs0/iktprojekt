@@ -6,8 +6,7 @@
 	<title>StreamFlix</title>
 	<link rel="stylesheet" href="styles.css">
     <script src="ads.js"></script>
-	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
-		integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
 </head>
 <body class="stream-page">
     <div class="ad-container ad-bottom-right" id="ad-container"></div>
@@ -25,6 +24,17 @@
 		<div class="stream-nav-right">
 			<button class="stream-nav-btn">Search</button>
 			<button class="stream-nav-btn">Status</button>
+			<div class="dropdown">
+				<button class="stream-profile" id="accountDropdown" data-bs-toggle="dropdown" aria-expanded="false"></button>
+				<ul class="dropdown-menu dropdown-menu-end dropdown-menu-dark" aria-labelledby="accountDropdown">
+					<li><h6 class="dropdown-header">My Account</h6></li>
+					<li><hr class="dropdown-divider"></li>
+					<li><a class="dropdown-item" href="#">Profile</a></li>
+					<li><a class="dropdown-item" href="#">Settings</a></li>
+					<li><hr class="dropdown-divider"></li>
+					<li><a class="dropdown-item text-danger" href="index.html">Sign out</a></li>
+				</ul>
+			</div>
 		</div>
 	</header>
 	<main>
@@ -42,7 +52,7 @@
 			</div>
 		</section>
 		<section class="content-rail container">
-			<h2>content-rail</h2>
+			<h2>More</h2>
 			<div class="poster-row">
 				<article class="poster-card"><img src="imgs/" alt="poster 1"><span>1</span></article>
 				<article class="poster-card"><img src="imgs/" alt="poster 2"><span>2</span></article>
@@ -55,6 +65,8 @@
 	</main>
 	<footer class="stream-footer">
 		<p>RatZ way. - anything is possible</p>
+		<p>© StreamFlix from RatZ</p>
 	</footer>
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
