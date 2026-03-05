@@ -377,14 +377,23 @@
     font-size: 0.8rem;
 }
 
-.stream-profile {
+.stream-profile{
     border: none;
     width: 34px;
     height: 34px;
     border-radius: 8px;
     font-weight: 700;
-    color: rgba(17, 24, 39, 1);
-    background: rgba(167, 139, 250, 1);
+    background-image: url(https://www.think.cz/images/stories/jimmy-zambo.jpg);
+    background-size: 150%;
+    background-position:center;
+}
+
+.szepkep{
+    position: ;
+    border: none;
+    width: 34px;
+    height: 34px;
+    border-radius: 8px;
 }
 
 .hero {
