@@ -8,7 +8,7 @@
     <script src="ads.js"></script>
     <title>Log in</title>
 </head>
-<body class="background">
+<body class="background login-page">
     <nav class="top-bar">
         <div class="logo-container">
             <img src="imgs/2.png" alt="logo" class="logo">
@@ -16,7 +16,7 @@
     </nav>
     <div class="ad-container ad-bottom-right" id="ad-container">
     </div>
-    <div class="container d-flex justify-content-center align-items-center" style="min-height: calc(100vh - 60px); margin-top: 60px; padding: 1rem;">
+    <div class="container d-flex justify-content-center align-items-center login-main">
         <div class="form-container">
             <form class="form">
                 <div class="mb-3">
@@ -33,11 +33,17 @@
                 <button type="button" class="btn btn-primary w-100 mt-1" onclick="window.location.href='main.html'">Sign in</button>
             </form>
             <p id="private-text" class="text-center text-muted mt-2 small" style="cursor:pointer">This is a private service!</p>
-            <div id="gif-overlay" style="display:none; position:fixed; inset:0; background:rgba(0,0,0,0.85); justify-content:center; align-items:center; z-index:1050;">
+        </div>
+    </div>
+
+    <div id="gif-overlay" style="display:none; position:fixed; inset:0; background:rgba(0,0,0,0.85); justify-content:center; align-items:center; z-index:1050;">
         <img id="gif-image" src="" alt="gif" style="max-width:100%; max-height:100%; object-fit:contain;">
     </div>
     <script src="gif.js" defer></script>
-        </div>
-    </div>
+
+    <footer class="stream-footer">
+        <p>RatZ way. - anything is possible</p>
+        <p>© 2026 StreamFlix from RatZ</p>
+    </footer>
 </body>
 </html>

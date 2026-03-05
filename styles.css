@@ -520,7 +520,24 @@
     padding: 2rem 1rem 2.5rem;
     color: rgba(156, 163, 175, 1);
     text-align: center;
-    border-top: 1px solid rgba(255, 255, 255, 0.08);
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 80px;
+}
+
+.login-page {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+.login-main {
+    flex: 1;
+    margin-top: 60px;
+    padding: 1rem;
 }
 
 @media (max-width: 992px) {
