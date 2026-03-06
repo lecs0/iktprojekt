@@ -383,13 +383,12 @@
     height: 34px;
     border-radius: 8px;
     font-weight: 700;
-    background-image: url(https://www.think.cz/images/stories/jimmy-zambo.jpg);
+    background-image: url(imgs/jimmy-zambo.jpg);
     background-size: 150%;
     background-position:center;
 }
 
 .szepkep{
-    position: ;
     border: none;
     width: 34px;
     height: 34px;
@@ -411,7 +410,7 @@
     position: absolute;
     inset: 0;
     background: linear-gradient(to right, rgba(12, 12, 12, 0) 20%, rgba(12, 12, 12, 0.1) 75%),
-        linear-gradient(to top, rgba(15, 15, 16, 1) 5%, rgba(15, 15, 16, 0.3) 55%);
+        linear-gradient(to top, rgba(15, 15, 16, 1) 15%, rgba(15, 15, 16, 0.3) 55%);
 }
 
 .hero-content {
