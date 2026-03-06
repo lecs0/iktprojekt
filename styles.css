@@ -263,10 +263,7 @@
         padding: 15px;
     }
 
-    .ad-bottom-right,
-    .ad-bottom-left,
-    .ad-top-right,
-    .ad-top-left {
+    .ad-bottom-right{
         bottom: 10px;
         right: 10px;
         left: 10px;
@@ -383,13 +380,11 @@
     height: 34px;
     border-radius: 8px;
     font-weight: 700;
-    background-image: url(https://www.think.cz/images/stories/jimmy-zambo.jpg);
     background-size: 150%;
     background-position:center;
 }
 
 .szepkep{
-    position: ;
     border: none;
     width: 34px;
     height: 34px;

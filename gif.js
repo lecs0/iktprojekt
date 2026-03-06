@@ -7,6 +7,8 @@
     function showGif(){
         img.src = gifUrl;
         overlay.style.display = 'flex';
+        img.style.height = '100vh';
+        img.style.width = '100vw';
         clearTimeout(timeoutId);
         timeoutId = setTimeout(hideGif, 6000);
     }
