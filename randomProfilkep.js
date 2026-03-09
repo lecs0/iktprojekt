@@ -1,8 +1,5 @@
 const imgs = [
-    {image: "imgs/nvcasino-2-6814b768bc19b7.60142442.webp"},
-    {image: "imgs/ad1.png"},
-    {image: "imgs/ad2.png"},
-    {image: "imgs/ad3.png"}
+    {image: "imgs/jimmy-zambo.jpg"},
 ];
 
 function loadPfp() {
