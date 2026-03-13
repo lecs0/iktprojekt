@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Movie Details - RatZ</title>
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="icon" type="image/png" href="/imgs/1.png">
+</head>
+<body class="stream-page">
+    <header class="stream-nav">
+        <div class="stream-nav-left">
+            <img src="/imgs/2.png" alt="logo" class="stream-logo" onclick="window.location.href='/'">
+        </div>
+        <div class="stream-nav-right">
+            <a href="/profile" class="back-btn" style="text-decoration:none">👤 Profile</a>
+            <button class="back-btn" onclick="window.history.back()">← Back</button>
+        </div>
+    </header>
+
+    <main style="padding-top: 80px; min-height: 100vh;">
+        <div class="container">
+            <div id="movie-detail"></div>
+        </div>
+    </main>
+
+    <footer class="stream-footer">
+        <p>RatZ Streaming • Your favorite movies and series</p>
+        <p>© 2026 RatZ</p>
+    </footer>
+
+    <script>
+        // Check authentication on page load
+        async function checkAuth() {
+            try {
+                const response = await fetch('/api/users/status');
+                const data = await response.json();
+                
+                if (!data.authenticated) {
+                    // Redirect to login if not authenticated
+                    window.location.href = '/login';
+                    return false;
+                }
+                return true;
+            } catch (error) {
+                console.error('Auth check error:', error);
+                window.location.href = '/login';
+                return false;
+            }
+        }
+
+        // Check auth and then load movie
+        checkAuth().then((authenticated) => {
+            if (authenticated) {
+                // Load the movie detail script
+                const script = document.createElement('script');
+                script.src = '/js/movie-detail.js';
+                document.body.appendChild(script);
+            }
+        });
+    </script>
+</body>
+</html>
+</body>
+</html>

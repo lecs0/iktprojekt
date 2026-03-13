@@ -1,0 +1,587 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile - RatZ</title>
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="icon" type="image/png" href="/imgs/1.png">
+    <style>
+        .profile-page { padding-top: 70px; min-height: 100vh; }
+
+        /* ── Header card ─────────────────────────────────────── */
+        .profile-header {
+            background: linear-gradient(135deg, rgba(167,139,250,0.12) 0%, rgba(15,15,16,1) 70%);
+            border-bottom: 1px solid rgba(167,139,250,0.2);
+            padding: 3rem 0 2.5rem;
+        }
+
+        .profile-header-inner {
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .profile-avatar {
+            width: 90px;
+            height: 90px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #a78bfa, #6d28d9);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: #fff;
+            border: 3px solid rgba(167,139,250,0.5);
+            flex-shrink: 0;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .profile-avatar img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 50%;
+        }
+
+        .avatar-wrapper {
+            position: relative;
+            flex-shrink: 0;
+            cursor: pointer;
+        }
+
+        .avatar-upload-overlay {
+            position: absolute;
+            inset: 0;
+            border-radius: 50%;
+            background: rgba(0,0,0,0.55);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            transition: opacity 0.2s;
+            font-size: 1.4rem;
+        }
+
+        .avatar-wrapper:hover .avatar-upload-overlay { opacity: 1; }
+
+        #avatar-file-input { display: none; }
+
+        .profile-header-info h1 {
+            font-size: 2rem;
+            font-weight: 800;
+            color: #f3f4f6;
+            margin-bottom: 0.25rem;
+        }
+
+        .profile-header-info .member-since {
+            font-size: 0.85rem;
+            color: #6b7280;
+        }
+
+        /* ── Stats row ───────────────────────────────────────── */
+        .stats-row {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 1rem;
+            margin: 2.5rem 0;
+        }
+
+        .stat-box {
+            background: rgba(25,25,30,0.9);
+            border: 1px solid rgba(167,139,250,0.15);
+            border-radius: 12px;
+            padding: 1.25rem 1.5rem;
+            text-align: center;
+            transition: border-color 0.3s;
+        }
+
+        .stat-box:hover { border-color: rgba(167,139,250,0.45); }
+
+        .stat-box .stat-val {
+            font-size: 2rem;
+            font-weight: 800;
+            color: #a78bfa;
+            display: block;
+            line-height: 1;
+            margin-bottom: 0.4rem;
+        }
+
+        .stat-box .stat-lbl {
+            font-size: 0.72rem;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            color: #6b7280;
+            font-weight: 600;
+        }
+
+        /* ── Sections ────────────────────────────────────────── */
+        .profile-section {
+            margin-bottom: 3rem;
+        }
+
+        .profile-section h2 {
+            font-size: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            color: #9ca3af;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .profile-section h2 span { color: #a78bfa; }
+
+        /* ── Top genres ──────────────────────────────────────── */
+        .genre-bars { display: flex; flex-direction: column; gap: 0.7rem; }
+
+        .genre-bar-row {
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+            font-size: 0.9rem;
+        }
+
+        .genre-bar-label {
+            width: 100px;
+            flex-shrink: 0;
+            color: #d1d5db;
+            font-weight: 600;
+            font-size: 0.85rem;
+        }
+
+        .genre-bar-track {
+            flex: 1;
+            height: 8px;
+            background: rgba(255,255,255,0.07);
+            border-radius: 4px;
+            overflow: hidden;
+        }
+
+        .genre-bar-fill {
+            height: 100%;
+            background: linear-gradient(90deg, #a78bfa, #8b5cf6);
+            border-radius: 4px;
+            transition: width 0.6s ease;
+        }
+
+        .genre-bar-count {
+            width: 30px;
+            text-align: right;
+            font-size: 0.78rem;
+            color: #6b7280;
+            flex-shrink: 0;
+        }
+
+        /* ── Top movies ──────────────────────────────────────── */
+        .top-movies-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(130px, 1fr));
+            gap: 1rem;
+        }
+
+        .top-movie-card {
+            cursor: pointer;
+            border-radius: 10px;
+            overflow: hidden;
+            background: rgba(25,25,30,0.9);
+            border: 1px solid rgba(167,139,250,0.15);
+            transition: all 0.3s;
+        }
+
+        .top-movie-card:hover {
+            transform: translateY(-6px);
+            border-color: rgba(167,139,250,0.6);
+            box-shadow: 0 12px 30px rgba(167,139,250,0.2);
+        }
+
+        .top-movie-card img {
+            width: 100%;
+            aspect-ratio: 2/3;
+            object-fit: cover;
+            display: block;
+        }
+
+        .top-movie-card-info {
+            padding: 0.5rem 0.6rem;
+        }
+
+        .top-movie-title {
+            font-size: 0.8rem;
+            font-weight: 600;
+            color: #f3f4f6;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        .top-movie-rating {
+            font-size: 0.72rem;
+            color: #a78bfa;
+            margin-top: 0.1rem;
+        }
+
+        /* ── Watch history list ──────────────────────────────── */
+        .history-list { display: flex; flex-direction: column; gap: 0.6rem; }
+
+        .history-item {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            background: rgba(25,25,30,0.7);
+            border: 1px solid rgba(255,255,255,0.06);
+            border-radius: 10px;
+            padding: 0.7rem 1rem;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .history-item:hover {
+            background: rgba(167,139,250,0.08);
+            border-color: rgba(167,139,250,0.3);
+        }
+
+        .history-thumb {
+            width: 50px;
+            height: 70px;
+            object-fit: cover;
+            border-radius: 6px;
+            flex-shrink: 0;
+        }
+
+        .history-info { flex: 1; min-width: 0; }
+
+        .history-title {
+            font-size: 0.95rem;
+            font-weight: 600;
+            color: #f3f4f6;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        .history-meta {
+            font-size: 0.78rem;
+            color: #6b7280;
+            margin-top: 0.2rem;
+        }
+
+        .history-progress {
+            width: 80px;
+            flex-shrink: 0;
+            text-align: right;
+        }
+
+        .history-pct {
+            font-size: 0.85rem;
+            font-weight: 700;
+            color: #a78bfa;
+        }
+
+        .history-pct-track {
+            height: 3px;
+            background: rgba(255,255,255,0.08);
+            border-radius: 2px;
+            margin-top: 0.3rem;
+            overflow: hidden;
+        }
+
+        .history-pct-fill {
+            height: 100%;
+            background: #a78bfa;
+            border-radius: 2px;
+        }
+
+        .completed-badge {
+            font-size: 0.65rem;
+            background: rgba(16,185,129,0.15);
+            color: #6ee7b7;
+            border: 1px solid rgba(16,185,129,0.35);
+            border-radius: 4px;
+            padding: 0.1rem 0.4rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .empty-state {
+            text-align: center;
+            padding: 3rem 1rem;
+            color: #6b7280;
+            font-size: 0.95rem;
+        }
+
+        @media (max-width: 600px) {
+            .profile-header-inner { flex-direction: column; align-items: flex-start; gap: 1rem; }
+            .stats-row { grid-template-columns: repeat(2, 1fr); }
+        }
+    </style>
+</head>
+<body class="stream-page">
+    <header class="stream-nav">
+        <div class="stream-nav-left">
+            <img src="/imgs/2.png" alt="RatZ" class="stream-logo" onclick="window.location.href='/'">
+            <nav class="stream-links">
+                <a href="/">Home</a>
+                <a href="/search">Movies</a>
+            </nav>
+        </div>
+        <div class="stream-nav-right">
+            <a href="/profile" class="back-btn" style="text-decoration:none">👤 Profile</a>
+            <button class="back-btn" onclick="window.history.back()">← Back</button>
+        </div>
+    </header>
+
+    <div class="profile-page">
+        <!-- Header -->
+        <div class="profile-header">
+            <div class="container profile-header-inner">
+                <div class="avatar-wrapper" onclick="document.getElementById('avatar-file-input').click()" title="Click to change profile picture">
+                    <div class="profile-avatar" id="profile-avatar">?</div>
+                    <div class="avatar-upload-overlay">📷</div>
+                    <input type="file" id="avatar-file-input" accept="image/*">
+                </div>
+                <div class="profile-header-info">
+                    <h1 id="profile-username">Loading...</h1>
+                    <div class="member-since" id="profile-member-since"></div>
+                    <div style="font-size:0.75rem;color:#6b7280;margin-top:0.3rem">Click avatar to change photo</div>
+                                    <a href="/admin" id="admin-panel-btn" style="display:none;margin-top:0.75rem;text-decoration:none;align-items:center;gap:0.4rem;padding:0.45rem 1rem;background:rgba(167,139,250,0.15);border:1px solid rgba(167,139,250,0.45);border-radius:8px;color:#a78bfa;font-size:0.85rem;font-weight:700;width:fit-content">⚙️ Admin Panel</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="container" style="padding-top: 2rem">
+
+            <!-- Stats -->
+            <div class="stats-row" id="stats-row">
+                <div class="stat-box">
+                    <span class="stat-val" id="stat-watched">—</span>
+                    <span class="stat-lbl">Movies Watched</span>
+                </div>
+                <div class="stat-box">
+                    <span class="stat-val" id="stat-completed">—</span>
+                    <span class="stat-lbl">Completed</span>
+                </div>
+                <div class="stat-box">
+                    <span class="stat-val" id="stat-hours">—</span>
+                    <span class="stat-lbl" id="stat-hours-label">Time Watched</span>
+                </div>
+                <div class="stat-box">
+                    <span class="stat-val" id="stat-top-genre">—</span>
+                    <span class="stat-lbl">Fav Genre</span>
+                </div>
+            </div>
+
+            <!-- Top Genres -->
+            <div class="profile-section" id="section-genres" style="display:none">
+                <h2>🎭 Top <span>Genres</span></h2>
+                <div class="genre-bars" id="genre-bars"></div>
+            </div>
+
+            <!-- Top Movies -->
+            <div class="profile-section" id="section-top-movies" style="display:none">
+                <h2>⭐ Top Rated <span>You Watched</span></h2>
+                <div class="top-movies-grid" id="top-movies-grid"></div>
+            </div>
+
+            <!-- Watch History -->
+            <div class="profile-section">
+                <h2>🕑 Watch <span>History</span></h2>
+                <div class="history-list" id="history-list">
+                    <div class="empty-state">Loading history...</div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <footer class="stream-footer">
+        <p>RatZ Streaming • © 2026 RatZ</p>
+    </footer>
+
+    <script>
+        function formatTime(seconds) {
+            if (!seconds || seconds < 60) return '0';
+            const h = Math.floor(seconds / 3600);
+            const m = Math.floor((seconds % 3600) / 60);
+            if (h >= 1) return `${h}h ${m > 0 ? m + 'm' : ''}`;
+            return `${m}`;
+        }
+
+        function getTimeLabel(seconds) {
+            if (!seconds || seconds < 3600) return 'Minutes Watched';
+            return 'Hours Watched';
+        }
+
+        function timeAgo(dateStr) {
+            const diff = Date.now() - new Date(dateStr).getTime();
+            const m = Math.floor(diff / 60000);
+            if (m < 1) return 'just now';
+            if (m < 60) return `${m}m ago`;
+            const h = Math.floor(m / 60);
+            if (h < 24) return `${h}h ago`;
+            const d = Math.floor(h / 24);
+            return `${d}d ago`;
+        }
+
+        async function loadProfile() {
+            const res = await fetch('/api/users/profile');
+            if (!res.ok) { window.location.href = '/login'; return; }
+            const p = await res.json();
+
+            // Header
+            const avatarEl = document.getElementById('profile-avatar');
+            if (p.avatar) {
+                avatarEl.innerHTML = `<img src="${p.avatar}" alt="avatar">`;
+            } else {
+                avatarEl.textContent = p.username ? p.username.slice(0, 2).toUpperCase() : '??';
+            }
+            document.getElementById('profile-username').textContent = p.username;
+            document.getElementById('profile-member-since').textContent =
+                'Member since ' + new Date(p.member_since).toLocaleDateString('en-GB', { year: 'numeric', month: 'long' });
+
+            // Stats
+            document.getElementById('stat-watched').textContent = p.movies_watched;
+            document.getElementById('stat-completed').textContent = p.completed_count;
+            document.getElementById('stat-hours').textContent = formatTime(p.total_seconds);
+            document.getElementById('stat-hours-label').textContent = getTimeLabel(p.total_seconds);
+            document.getElementById('stat-top-genre').textContent =
+                p.top_genres.length ? p.top_genres[0].genre : '—';
+
+            // Top genres bar chart
+            if (p.top_genres.length) {
+                document.getElementById('section-genres').style.display = 'block';
+                const max = p.top_genres[0].cnt;
+                document.getElementById('genre-bars').innerHTML = p.top_genres.map(g => `
+                    <div class="genre-bar-row">
+                        <span class="genre-bar-label">${g.genre}</span>
+                        <div class="genre-bar-track">
+                            <div class="genre-bar-fill" style="width:${Math.round((g.cnt/max)*100)}%"></div>
+                        </div>
+                        <span class="genre-bar-count">${g.cnt}</span>
+                    </div>`).join('');
+            }
+
+            // Top movies
+            if (p.top_movies.length) {
+                document.getElementById('section-top-movies').style.display = 'block';
+                document.getElementById('top-movies-grid').innerHTML = p.top_movies.map(m => `
+                    <div class="top-movie-card" onclick="window.location.href='/movie/${m.movie_id}'">
+                        <img src="${m.poster_img || 'https://via.placeholder.com/130x195?text=No+Image'}"
+                             alt="${m.title}"
+                             onerror="this.src='https://via.placeholder.com/130x195?text=No+Image'">
+                        <div class="top-movie-card-info">
+                            <div class="top-movie-title">${m.title}</div>
+                            ${m.rating ? `<div class="top-movie-rating">⭐ ${m.rating}/10</div>` : ''}
+                        </div>
+                    </div>`).join('');
+            }
+        }
+
+        async function loadHistory() {
+            const res = await fetch('/api/users/history');
+            const history = await res.json();
+            const list = document.getElementById('history-list');
+
+            if (!history.length) {
+                list.innerHTML = '<div class="empty-state">No watch history yet.<br>Start watching a movie to see it here!</div>';
+                return;
+            }
+
+            list.innerHTML = history.map(h => {
+                const pct = h.duration_seconds > 0
+                    ? Math.min(100, Math.round((h.progress_seconds / h.duration_seconds) * 100))
+                    : 0;
+                return `
+                <div class="history-item" onclick="window.location.href='/movie/${h.movie_id}'">
+                    <img class="history-thumb"
+                         src="${h.poster_img || 'https://via.placeholder.com/50x70?text=?'}"
+                         alt="${h.title}"
+                         onerror="this.src='https://via.placeholder.com/50x70?text=?'">
+                    <div class="history-info">
+                        <div class="history-title">${h.title}</div>
+                        <div class="history-meta">
+                            ${h.genre || ''}${h.release_year ? ' · ' + h.release_year : ''}
+                            · ${timeAgo(h.last_watched)}
+                            ${h.completed ? ' &nbsp;<span class="completed-badge">✓ Done</span>' : ''}
+                        </div>
+                    </div>
+                    <div class="history-progress">
+                        <div class="history-pct">${pct}%</div>
+                        <div class="history-pct-track">
+                            <div class="history-pct-fill" style="width:${pct}%"></div>
+                        </div>
+                    </div>
+                </div>`;
+            }).join('');
+        }
+
+        // Avatar upload handler
+        document.getElementById('avatar-file-input').addEventListener('change', async (e) => {
+            const file = e.target.files[0];
+            if (!file) return;
+
+            const formData = new FormData();
+            formData.append('avatar', file);
+
+            const avatarEl = document.getElementById('profile-avatar');
+            avatarEl.innerHTML = '<span style="font-size:1rem;color:#a78bfa">Uploading...</span>';
+
+            try {
+                const res = await fetch('/api/users/avatar', { method: 'POST', body: formData });
+                const data = await res.json();
+                if (data.success) {
+                    avatarEl.innerHTML = `<img src="${data.avatar}" alt="avatar">`;
+                } else {
+                    avatarEl.textContent = '!';
+                    alert('Upload failed: ' + (data.error || 'unknown error'));
+                }
+            } catch (err) {
+                avatarEl.textContent = '!';
+                alert('Upload error: ' + err.message);
+            }
+        });
+
+        // Avatar upload handler
+        document.getElementById('avatar-file-input').addEventListener('change', async (e) => {
+            const file = e.target.files[0];
+            if (!file) return;
+
+            const formData = new FormData();
+            formData.append('avatar', file);
+
+            const avatarEl = document.getElementById('profile-avatar');
+            avatarEl.innerHTML = '<span style="font-size:0.85rem;color:#a78bfa">Uploading...</span>';
+
+            try {
+                const res = await fetch('/api/users/avatar', { method: 'POST', body: formData });
+                const data = await res.json();
+                if (data.success) {
+                    avatarEl.innerHTML = `<img src="${data.avatar}" alt="avatar">`;
+                } else {
+                    alert('Upload failed: ' + (data.error || 'unknown error'));
+                    loadProfile();
+                }
+            } catch (err) {
+                alert('Upload error: ' + err.message);
+                loadProfile();
+            }
+        });
+
+        // Auth check then load
+        fetch('/api/users/status').then(r => r.json()).then(data => {
+            if (!data.authenticated) { window.location.href = '/login'; return; }
+                        if (data.isAdmin) {
+                            const btn = document.getElementById('admin-panel-btn');
+                            btn.style.display = 'inline-flex';
+                        }
+            loadProfile();
+            loadHistory();
+        }).catch(() => window.location.href = '/login');
+    </script>
+</body>
+</html>
