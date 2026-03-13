@@ -51,26 +51,13 @@
 		</div>
 	</header>
     <main>
-        <section class="stream-page">
-            <div class="movie-detail">
-                <div class="movie-poster">
-                    <img src="${movieData.img}" alt="Thumbnail">
-                </div>
-                <div class="movie-info">
-                    <h1></h1>
-                    <p class="movie-meta">Mufaj: ${movieData.genre} <br>Megjelenes: ${movieData.release} <br>Hossz ${movieData.duration} perc<br>Orszag: ${movieData.country}</p>
-                    <p class="movie-description">${movieData.description}</p>
-                </div>
-            </div>
-            <div class="video-container">
-                <iframe src="${movieData.movie}" allowfullscreen webkitallowfullscreen mozallowfullscreen></iframe>
-            </div>
-        </section>
+		<div id="movieCont" class="movieCont"></div>
     </main>
-	<footer class="stream-footer">
-		<p>RatZ way. - anything is possible</p>
-		<p>© 2026 RatZ</p>
-	</footer>
-	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+    <footer class="stream-footer">
+        <p>RatZ way. - anything is possible</p>
+        <p>© 2026 RatZ</p>
+    </footer>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="flimBetoltesLogika.js"></script>
 </body>
 </html>

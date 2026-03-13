@@ -38,10 +38,10 @@ function displayMovieList() {
     movies.forEach(movie => {
         const card = document.createElement('article');
         card.className = 'poster-card';
-        card.onclick = () => window.location.href = `test2.html?id=${movie.id}`;
+        card.onclick = () => window.location.href = `movies.html?id=${movie.id}`;
         card.innerHTML = `
             <img src="${movie.img}" alt="${movie.title} poster">
-            <span>${movie.title}</span>
+            <span style="color: white; font-weight: bold; text-align: center;">${movie.title}</span>
         `;
         posterRow.appendChild(card);
     });
@@ -55,10 +55,10 @@ function getMovieId() {
 
 // rendes film oldala erre is kell majd egy kis atalakitas
 function displayMovieDetails() {
-    const movieId = getMovieId();
+    const movieId = getMovieId() || 0; // default to first movie if no id provided
     const movieCont = document.getElementById("movieCont");
     
-    if (!movieCont || movieId === null) return; // itt is azt nezem hogy nem e szar oldalon vagyunk
+    if (!movieCont) return; // itt is azt nezem hogy nem e szar oldalon vagyunk
     
     const movieData = movies[movieId];
     if (!movieData) return; // ha valaki megprobalna random szamot beirni a film idhoz
@@ -86,9 +86,12 @@ function displayMovieDetails() {
 
 // ez a varazslat ami eldonti hogy melyik oldalon is vagyink
 window.onload = function() {
+    console.log("Page loaded, initializing...");
     if (document.getElementById('poster-row')) {
         displayMovieList(); // ha a main oldalon vagyunk
     } else if (document.getElementById('movieCont')) {
+        console.log("Movie container found, displaying movie details...");
         displayMovieDetails(); // ez meg a film
+        console.log("Movie details displayed.");
     }
 };
