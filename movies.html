@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="hu">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>RatZ</title>
+	<link rel="stylesheet" href="styles.css">
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
+		integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+	<link rel="icon" type="image/png" href="imgs/1.png">
+</head>
+
+<body class="stream-page">
+	<script src="ads.js"></script>
+	<div class="ad-container ad-bottom-right" id="ad-container"></div>
+
+
+	<header class="stream-nav">
+		<div class="stream-nav-left">
+			<img src="imgs/2.png" alt="logo" class="stream-logo">
+			<nav class="stream-links">
+				<a href="#" title="Go to the top">Home</a>
+				<a>Movies</a>
+				<a href="https://open.spotify.com/playlist/1bYK6vRq6eCEdo7YGowFkb" title="My list">My list</a>
+				<a href="https://www.youtube.com/@einerecords" target="_blank" title="Geeker radio">Türr.fm</a>
+				<a href="https://gyogyitokezekhaza.lapunk.hu/tibeti-hangtal-terapia-1188130" target="_blank"
+					title="Trust the process">Therapy</a>
+			</nav>
+		</div>
+		<div class="stream-nav-right">
+			<button class="stream-nav-btn">Search</button>
+			<button class="stream-nav-btn">Status</button>
+			<div class="dropdown">
+				<button class="stream-profile" id="accountDropdown" data-bs-toggle="dropdown"
+					aria-expanded="false"></button>
+				<ul class="dropdown-menu dropdown-menu-end dropdown-menu-dark" aria-labelledby="accountDropdown">
+					<li>
+						<h6 class="dropdown-header">My Account</h6>
+					</li>
+					<li>
+						<hr class="dropdown-divider">
+					</li>
+					<li><a class="dropdown-item" href="#">Profile</a></li>
+					<li><a class="dropdown-item" href="#">Settings</a></li>
+					<li>
+						<hr class="dropdown-divider">
+					</li>
+					<li><a class="dropdown-item text-danger" href="index.html">Sign out</a></li>
+				</ul>
+			</div>
+		</div>
+	</header>
+    <main>
+        <section class="stream-page">
+            <div class="movie-detail">
+                <div class="movie-poster">
+                    <img src="${movieData.img}" alt="Thumbnail">
+                </div>
+                <div class="movie-info">
+                    <h1></h1>
+                    <p class="movie-meta">Mufaj: ${movieData.genre} <br>Megjelenes: ${movieData.release} <br>Hossz ${movieData.duration} perc<br>Orszag: ${movieData.country}</p>
+                    <p class="movie-description">${movieData.description}</p>
+                </div>
+            </div>
+            <div class="video-container">
+                <iframe src="${movieData.movie}" allowfullscreen webkitallowfullscreen mozallowfullscreen></iframe>
+            </div>
+        </section>
+    </main>
+	<footer class="stream-footer">
+		<p>RatZ way. - anything is possible</p>
+		<p>© 2026 RatZ</p>
+	</footer>
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>

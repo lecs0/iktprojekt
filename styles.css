@@ -622,3 +622,18 @@
     object-fit: cover;
     object-position: center;
 }
+
+.stream-page {
+    padding: 20px;
+    color: aliceblue;
+}
+
+#movie-title {
+    margin-top: 50px;
+}
+
+.movie-desc{
+    margin-left: 300px;
+    margin-top: -20px;
+    list-style: none;
+}
