@@ -10,7 +10,7 @@
     <link rel="icon" type="image/png" href="imgs/2.png">
     <script src="ads.js"></script>
 </head>
-<body class="background">
+<body class="background d-flex flex-column min-vh-100" style="overflow: hidden;">
     <div class="ad-container ad-bottom-right" id="ad-container">
     </div>
     <nav class="top-bar">
@@ -18,11 +18,35 @@
             <img src="imgs/2.png" alt="logo" class="logo">
         </div>
     </nav>
-    <div class="d-flex justify-content-center align-items-center min-vh-100">
-        <div class="form-container">
-            <p class="form-label">Please contact me on discord if you forgot the password!</p>
-            <a rel="noopener noreferrer" href="https://discord.gg/msdtvPpSkJ"><button class="btn btn-primary w-100 mt-1">Contact</button></a>
-        </div>
+    <main class="d-flex flex-column justify-content-center align-items-center flex-grow-1 gap-3">
+        <h3 class="text-white text-center mb-3">You can contact us here:</h3>
+        <!-- From Uiverse.io by joe-watson-sbf --> 
+        <div class="cards">
+        <a class="flip-card" href="https://discord.gg/msdtvPpSkJ">
+            <div class="flip-card-inner">
+                <div class="flip-card-front">
+                    <img class="card-bg" src="imgs/" alt="Áron">
+                </div>
+                <div class="flip-card-back">
+                    <p class="card-text">Click here to contact me</p>
+                </div>
+            </div>
+        </a>
+        <a class="flip-card" href="https://discord.gg/rB2BfhSde9">
+            <div class="flip-card-inner">
+                <div class="flip-card-front">
+                    <img class="card-bg" src="imgs/" alt="Dominik">
+                </div>
+                <div class="flip-card-back">
+                    <p class="card-text">Click here to contact me</p>
+                </div>
+            </div>
+        </a>
     </div>
+</main>
+<footer class="stream-footer2" style="margin-top: auto;">
+        <p>RatZ way. - anything is possible</p>
+        <p>© 2026 RatZ</p>
+    </footer>
 </body>
 </html>
