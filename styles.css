@@ -426,12 +426,12 @@
 }
 
 .content-rail {
-    margin-top: 1.5rem;
-    margin-bottom: 1.2rem;
+    margin-bottom: 12rem;
 }
 
 .content-rail h2 {
     font-size: 1.3rem;
+    margin-top: -0.2rem;
     margin-bottom: 0.75rem;
     color: rgba(243, 244, 246, 1);
 }
@@ -476,8 +476,8 @@
 }
 
 .stream-footer {
-    margin-top: 2rem;
-    padding: 2rem 1rem 2.5rem;
+    margin-top: -10rem;
+    margin-bottom: 2rem;
     color: rgba(156, 163, 175, 1);
     text-align: center;
     width: 100%;
@@ -664,17 +664,4 @@
   width: 100%;
   flex-wrap: wrap;
   margin-bottom: 0px;
-}
-
-.stream-footer2 {
-    margin-top: -10rem;
-    margin-bottom: 2rem;
-    color: rgba(156, 163, 175, 1);
-    text-align: center;
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    min-height: 80px;
 }
