@@ -641,6 +641,9 @@ main {
   background: #000000;
   color: white;
   transform: rotateY(180deg);
+  position: relative;
+  text-align: center;
+  color: white;
 }
 
 .card-bg {
@@ -659,12 +662,31 @@ main {
   gap: 0.5rem;
   width: 100%;
   flex-wrap: wrap;
-  margin-bottom: 0px;
+}
+
+.card-text {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%;
+  background: rgba(0, 0, 0, 0.6);
+  padding: 5px 0;
+  font-weight: bold;
+}
+
+.movie-title{
+    margin-bottom: 15px;
 }
 
 .movie-detail{
-    margin: 100px 300px 0;
+    margin: 80px 300px 0;
     display: flow-root;
+}
+
+.movie-info{
+    transform: translateY(-7px);
+    display: inline-block;
 }
 
 .movie-poster{
@@ -682,4 +704,91 @@ main {
     width: 200px;
     height: 300px;
     border: 5px outset white;
+}
+
+/* From Uiverse.io by Priyanshu02020 */ 
+#heart {
+  display: none;
+}
+
+.like-button {
+    margin-left: 330px;
+    margin-top: -20px;
+  position: relative;
+  cursor: pointer;
+  display: flex;
+  height: 48px;
+  width: 136px;
+  border-radius: 16px;
+  border: none;
+  background-color: #1d1d1d;
+  overflow: hidden;
+  box-shadow:
+    inset -2px -2px 5px rgba(255, 255, 255, 0.2),
+    inset 2px 2px 5px rgba(0, 0, 0, 0.1),
+    4px 4px 10px rgba(0, 0, 0, 0.4),
+    -2px -2px 8px rgba(255, 255, 255, 0.1);
+}
+
+.like {
+  width: 70%;
+  height: 100%;
+  display: flex;
+  cursor: pointer;
+  align-items: center;
+  justify-content: space-evenly;
+}
+
+.like-icon {
+  fill: #505050;
+  height: 28px;
+  width: 28px;
+}
+
+.like-text {
+  color: #fcfcfc;
+  font-size: 16px;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.like-count {
+  position: absolute;
+  right: 0;
+  width: 30%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #717070;
+  font-size: 16px;
+  border-left: 2px solid #4e4e4e;
+  transition: all 0.5s ease-out;
+}
+
+.like-count.two {
+  transform: translateY(40px);
+}
+
+.on:checked ~ .like .like-icon {
+  fill: #fc4e4e;
+  animation: enlarge 0.2s ease-out 1;
+  transition: all 0.2s ease-out;
+}
+
+.on:checked ~ .like-count.two {
+  transform: translateX(0);
+  color: #fcfcfc;
+}
+
+.on:checked ~ .like-count.one {
+  transform: translateY(-40px);
+}
+
+@keyframes enlarge {
+  0% {
+    transform: scale(0.5);
+  }
+  100% {
+    transform: scale(1.2);
+  }
 }

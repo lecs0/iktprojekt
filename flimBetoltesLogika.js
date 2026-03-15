@@ -65,22 +65,22 @@ function displayMovieDetails() {
     
     // displaygeci
     movieCont.innerHTML = `
-        <div class="movie-detail">
-        <div class="row"><h2 class="movie-title">${movieData.title}</h2>
+<div class="movie-detail">
+    <div class="row"><h2 class="movie-title">${movieData.title}</h2>
+    </div>
+    <div class="movie-poster">
+        <img src="${movieData.img}" alt="${movieData.title} poster">
+    </div>
+    <div class="row">
+        <div class="movie-info">
+            <p class="movie-meta">Műfaj: ${movieData.genre} <br>Megjelenés: ${movieData.release} <br>Hossz: ${movieData.duration} perc<br>Ország: ${movieData.country}</p>
+            <p class="movie-description">${movieData.description}</p>
         </div>
-            <div class="movie-poster">
-                <img src="${movieData.img}" alt="${movieData.title} poster">
-            </div>
-            <div class="row">
-            <div class="movie-info">
-                <p class="movie-meta">Műfaj: ${movieData.genre} <br>Megjelenés: ${movieData.release} <br>Hossz: ${movieData.duration} perc<br>Ország: ${movieData.country}</p>
-                <p class="movie-description">${movieData.description}</p>
-                </div>
-            </div>
-        </div>
-        <div class="video-container">
-            <iframe src="${movieData.movie}" allowfullscreen webkitallowfullscreen mozallowfullscreen></iframe>
-        </div>
+    </div>
+</div>
+<div class="video-container">
+    <iframe src="${movieData.movie}" allowfullscreen webkitallowfullscreen mozallowfullscreen></iframe>
+</div>
         `;
     
 }
