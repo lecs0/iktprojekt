@@ -26,4 +26,4 @@ function loadAd() {
     }
 }
 
-window.onload = loadAd;
+document.addEventListener("DOMContentLoaded", loadAd);

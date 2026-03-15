@@ -8,4 +8,4 @@ function loadPfp() {
         randomPfpEls[0].style.backgroundImage = `url(${imgs[Math.floor(Math.random() * imgs.length)].image})`;
     }
 }
-window.onload = loadPfp;
+document.addEventListener("DOMContentLoaded", loadPfp);
