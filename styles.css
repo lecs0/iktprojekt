@@ -586,12 +586,6 @@
     margin-top: 50px;
 }
 
-.movie-desc{
-    margin-left: 300px;
-    margin-top: -20px;
-    list-style: none;
-}
-
 /* From Uiverse.io by joe-watson-sbf */ 
 .flip-card {
   background-color: transparent;
@@ -661,4 +655,50 @@
   width: 100%;
   flex-wrap: wrap;
   margin-bottom: 0px;
+}
+
+.movie-detail{
+    display: flex;
+    gap: 1.5rem;
+    align-items: flex-start;
+    padding-top: 5rem;
+}
+
+.movie-poster{
+    text-align: left;
+    flex-shrink: 0;
+}
+
+.movie-poster img {
+    width: 250px;
+    height: 400px;
+    object-fit: cover;
+    margin-left: 15px;
+    border: 5px solid white;
+}
+
+.movie-info{
+    margin-top: -8px;
+}
+
+.movie-meta{
+    display: flex;
+    gap: 1rem;
+}
+
+.movie-description{
+    color: rgba(209, 213, 219, 1);
+    line-height: 1.6;
+}
+
+.video-container{
+    margin-left: 290px;
+    margin-top: -165px;
+    width: 900px;
+    height: 550px;
+}
+
+.video-container iframe {
+    width: 30%;
+    height: 30%;
 }

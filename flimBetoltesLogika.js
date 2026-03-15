@@ -70,9 +70,9 @@ function displayMovieDetails() {
                 <img src="${movieData.img}" alt="${movieData.title} poster">
             </div>
             <div class="movie-info">
-                <h1>${movieData.title}</h1>
-                <p class="movie-meta">Mufaj: ${movieData.genre} <br>Megjelenes: ${movieData.release} <br>Hossz ${movieData.duration} perc<br>Orszag: ${movieData.country}</p>
+                <h3>${movieData.title}</h3>
                 <p class="movie-description">${movieData.description}</p>
+                <p class="movie-meta">Műfaj: ${movieData.genre} <br>Megjelenés: ${movieData.release} <br>Hossz: ${movieData.duration} perc<br>Ország: ${movieData.country}</p>
             </div>
         </div>
         <div class="video-container">
