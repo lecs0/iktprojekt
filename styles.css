@@ -279,6 +279,12 @@
     background: #0f0f10;
     color: rgba(243, 244, 246, 1);
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    display: flex;
+    flex-direction: column;
+}
+
+main {
+    flex: 1;
 }
 
 .stream-nav {
@@ -423,7 +429,7 @@
 }
 
 .content-rail {
-    margin-bottom: 12rem;
+    margin-bottom: 30px;
 }
 
 .content-rail h2 {
@@ -473,8 +479,6 @@
 }
 
 .stream-footer {
-    margin-top: -10rem;
-    margin-bottom: 2rem;
     color: rgba(156, 163, 175, 1);
     text-align: center;
     width: 100%;
@@ -583,7 +587,8 @@
 }
 
 #movie-title {
-    margin-top: 50px;
+    padding-top: 70px;
+    margin-top: 0;
 }
 
 /* From Uiverse.io by joe-watson-sbf */ 
@@ -658,47 +663,23 @@
 }
 
 .movie-detail{
-    display: flex;
-    gap: 1.5rem;
-    align-items: flex-start;
-    padding-top: 5rem;
+    margin: 100px 300px 0;
+    display: flow-root;
 }
 
 .movie-poster{
-    text-align: left;
-    flex-shrink: 0;
+    float: left;
+    margin-right: 10px;
+    margin-bottom: 1rem;
 }
 
-.movie-poster img {
-    width: 250px;
-    height: 400px;
-    object-fit: cover;
-    margin-left: 15px;
-    border: 5px solid white;
+.video-container {
+    text-align: center;
+    margin-top: -120px;
 }
 
-.movie-info{
-    margin-top: -8px;
-}
-
-.movie-meta{
-    display: flex;
-    gap: 1rem;
-}
-
-.movie-description{
-    color: rgba(209, 213, 219, 1);
-    line-height: 1.6;
-}
-
-.video-container{
-    margin-left: 290px;
-    margin-top: -165px;
-    width: 900px;
-    height: 550px;
-}
-
-.video-container iframe {
-    width: 30%;
-    height: 30%;
+.movie-poster img{
+    width: 200px;
+    height: 300px;
+    border: 5px outset white;
 }
