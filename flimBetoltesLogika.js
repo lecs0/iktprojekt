@@ -27,7 +27,85 @@ const movies = [
         country: "USA", 
         movie: "https://vk.com/video_ext.php?oid=-229926412&id=456247507&hash=3181bb72c7321e98"
     
+    },
+    {
+        id: 2,
+        title: "Anakonda",
+        img: "https://m.media-amazon.com/images/M/MV5BMTNlMTk1YTItOWYxNi00ZWIzLTkyOWEtNTJmMzk4NmIyN2NmXkEyXkFqcGc@._V1_FMjpg_UX1000_.jpg",
+        description: "A csodás komikuscsapat (Jack Black, Paul Rudd, Steve Zahn) egy óriási óriáskígyóval küzdve, a dzsungel mélyén is rettentően vicces tud lenni: ez a film a legendás Trópusi vihar méltó társa! Doug (Jack Black) és Griff (Paul Rudd) kiskölyök koruk óta a legjobb haverok, és világ életükben arról álmodoztak, hogy egyszer filmet csinálnak. Méghozzá gyerekkori kedvencük, az óriáskígyós-dzsungeles-horrorkaland, az Anakonda remake-jét. Kezdik úgy érezni, hogy öregszenek, ezért nem várnak tovább, és minden pénzüket arra költik, hogy az eredeti helyszínen, az Amazonas őserdejében forgathassák újra a régi filmet. Vagyis: nincs pénzük, nem értenek a filmezéshez, és fogalmuk sincs a környék veszélyeiről – minden a legjobban alakul! Kivéve, hogy az őserdőben valóban találkoznak egy elképesztő méretű kígyóval. A vicces káosz halálosan veszélyes káosszá válik. Végül is, sokszor mondták, hogy az életüket adnák a filmért…",
+        genre: "Akció, Kaland, Vígjáték",
+        release: "2025",
+        duration: "98",
+        country: "USA",
+        movie: "https://vk.com/video_ext.php?oid=-229926412&id=456247233&hash=ad380fba507a4735"
+    },
+    {
+        id: 3,
+        title: "Zootropolis 2",
+        img: "https://m.media-amazon.com/images/M/MV5BYjg1Mjc3MjQtMTZjNy00YWVlLWFhMWEtMWI3ZTgxYjJmNmRlXkEyXkFqcGc@._V1_.jpg",
+        description: "Judy Hoppsz nyomozó és ravasz partnere, Nick Wilde egy rejtélyes hüllő tekergőző nyomába szegődik, miután az fenekestül felforgatja Zootropolist. Az ügy felgöngyölítése érdekében Judy és Nick az állati város olyan szegleteibe merül alá, amik alaposan próbára teszik még formálódó munkakapcsolatukat.",
+        genre: "Akció, Kaland, Animáció, Vígjáték, Krimi",
+        release: "2025",
+        duration: "107",
+        country: "USA",
+        movie: "https://vk.com/video_ext.php?oid=-229926412&id=456247222&hash=7ca51e9b1d87344a"
+    },
+    {
+        id: 4,
+        title: "SpongyaBob: Kalózkaland",
+        img: "https://m.media-amazon.com/images/M/MV5BYzdlYmM2YmEtMmQ3Zi00ZjAxLTg2ZjctNzU3NDVkY2RiOTBjXkEyXkFqcGc@._V1_FMjpg_UX1000_.jpg",
+        description: "SpongyaBob és cimborái Bikinifenékről vitorlát bontanak, és nekivágnak az eddigi legnagyobb, vadonatúj, kihagyhatatlan mozis kalandjuknak… ami nem más, mint a SpongyaBob: Kalózkaland. SpongyaBob kétségbeesetten szeretne már nagy srác lenni, ezért, hogy bátorságát bizonyítsa Rák uramnak, nyomába ered a Bolygó Hollandinak – a titokzatos, kalandor szellemkalóznak – egy tengerjáró kalandvígjáték keretében, ami a mély tenger legmélyebb fenekére vezet, ahová Spongya eddig még nem merészkedett…",
+        genre: "Kaland, Animáció, Vígjáték, Családi, Fantasy",
+        release: "2025",
+        duration: "88",
+        country: "USA",
+        movie: "https://vk.com/video_ext.php?oid=-229926412&id=456247155&hash=52222965f90c72a9"
+    },
+    {
+        id: 5,
+        title: "Öt éjjel Freddy Pizzázójában 2",
+        img: "https://m.media-amazon.com/images/M/MV5BZmQ3NmIxNTgtYjFiNS00NzliLWI0YzAtZDkxY2E0YWIxZDEwXkEyXkFqcGc@._V1_FMjpg_UX1000_.jpg",
+        description: "Már nem csak Freddynél vannak. 2023-ban a Scott Cawthon nagysikerű videójátéka alapján készült adaptáció az év legnagyobb bevételt hozó horrorfilmje lett. Most itt a robotbábok terrorjának új, sokkoló fejezete. Egy év telt el a Freddy Fazbear Pizzázójában történt természetfeletti rémálom óta. Az ottani események kifacsart változata helyi legendaként él tovább, és ez inspirálta a város első Faz Fesztiválját. A volt biztonsági őr, Mike (Josh Hutcherson) és Vanessa rendőrtiszt (Elizabeth Lail) elhallgatták Mike 11 éves húga, Abby (Piper Rubio) elől az igazságot a robotbábu barátok sorsát illetően. Ám amikor Abby kiszökik, hogy újra találkozzon Freddyvel, Bonnie-val, Chicával és Foxyval, az félelmetes események láncolatát indítja el, sötét titkok",
+        genre: "Horror, Misztikus, Thriller",
+        release: "2025",
+        duration: "104",
+        country: "USA",
+        movie: "https://vk.com/video_ext.php?oid=-229926412&id=456247085&hash=ea795b6a8633e633"
+    },
+    {
+        id: 6,
+        title: "Chappie",
+        img: "https://image.tmdb.org/t/p/original/73lhEwNGy03mEmaARgxmqwAyP4g.jpg",
+        description: "Chappie-t születésekor elrabolják. Idegen emberek közé kerül, és egy különleges, össze-vissza, teljesen működésképtelen családban nevelkedik. Lassacskán kiderül róla, hogy különleges tehetség, természetfeletti érzékek birtokosa. Egyedi és megismételhetetlen, ám egyben megnevelhetetlen is. És nem mellesleg, ő egy robot...",
+        genre: "Akció, Sci-Fi",
+        release: "2015",
+        duration: "120",
+        country: "USA",
+        movie: "https://vk.com/video_ext.php?oid=-229384052&id=456242327&hash=9ed8ab8e270c2052"
+    },
+    {
+        id: 7,
+        title: "Démonok között: Utolsó rítusok",
+        img: "https://image.tmdb.org/t/p/original/oG6Xs5gVOCSFHBnkFuy9LdnWg7x.jpg",
+        description: "A Warren-sorozat, amelyet a neves paranormális nyomozók, Ed és Lorraine Warren által végzett, jól dokumentált ördögűzések ihlettek, elérkezett a hátborzongató végkifejlethez. Az évek során a házaspár számtalan ártatlan léleknek segített megszabadulni a rosszindulatú kísértésektől, több mint ezerszer. Ezúttal azonban minden másképp történt. A rutin nem jelent semmit. A bátorság nem nyújt védelmet. És a túlvilági erők talán nem is azt a családot veszik célba, amelynek védelméért a Warrenék küzdenek, hanem egyenesen Warrenéket. A Démonok között univerzumában játszódó film, James Wan producer vezetésével, Vera Farmiga és Patrick Wilson főszereplésével érkezik. Ismét egy félelmetes, túlvilági történetet visznek a vászonra, amely valós esetekből merít.",
+        genre: "Horror, Thriller",
+        release: "2025",
+        duration: "135",
+        country: "USA",
+        movie: "https://vk.com/video_ext.php?oid=-229384052&id=456241988&hash=2327aab6b85ac1aa"
+    },
+    {
+        id: 8,
+        title: "",
+        img: "",
+        description: "",
+        genre: "",
+        release: "",
+        duration: "",
+        country: "",
+        movie: ""
     }
+
 ];
 
 // hat ez nemtudom hogy jo lesz de majd megnezzuk mert ez letrehoz annyi postert amennyi film van de ezt lehet at kene alakitani a tamplateesre
@@ -41,7 +119,7 @@ function displayMovieList() {
         card.onclick = () => window.location.href = `movies.html?id=${movie.id}`;
         card.innerHTML = `
             <img src="${movie.img}" alt="${movie.title} poster">
-            <span style="color: white; font-weight: bold; text-align: center;">${movie.title}</span>
+            <span>${movie.title}</span>
         `;
         posterRow.appendChild(card);
     });
@@ -77,9 +155,27 @@ function displayMovieDetails() {
             <p class="movie-description">${movieData.description}</p>
         </div>
     </div>
+
+    
 </div>
+
+<div class="like-button">
+<input class="on" id="heart" type="checkbox" />
+<label class="like" for="heart">
+    <svg class="like-icon" fill-rule="nonzero" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+        <path d="m11.645 20.91-.007-.003-.022-.012a15.247 15.247 0 0 1-.383-.218 25.18 25.18 0 0 1-4.244-3.17C4.688 15.36 2.25 12.174 2.25 8.25 2.25 5.322 4.714 3 7.688 3A5.5 5.5 0 0 1 12 5.052 5.5 5.5 0 0 1 16.313 3c2.973 0 5.437 2.322 5.437 5.25 0 3.925-2.438 7.111-4.739 9.256a25.175 25.175 0 0 1-4.244 3.17 15.247 15.247 0 0 1-.383.219l-.022.012-.007.004-.003.001a.752.752 0 0 1-.704 0l-.003-.001Z"></path>
+    </svg>
+    <span class="like-text">Likes</span>
+</label>
+<span class="like-count one">66</span>
+<span class="like-count two">67</span>
+</div>
+</div>
+
+
+
 <div class="video-container">
-    <iframe src="${movieData.movie}" allowfullscreen webkitallowfullscreen mozallowfullscreen></iframe>
+    <iframe src="${movieData.movie}" width="880vw" height="500vh" allowfullscreen webkitallowfullscreen mozallowfullscreen></iframe>
 </div>
         `;
     
@@ -98,3 +194,6 @@ window.onload = function() {
         console.log("Movie details displayed.");
     }
 };
+
+
+//utalom a ciganyokat
