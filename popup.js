@@ -1,10 +1,64 @@
 const openPopup = document.getElementById('openPopup');
 const closePopup = document.getElementById('closePopup');
-const popup = document.getElementById('popup');
-const overlay = document.getElementById('gif-overlay');
-const img = document.getElementById('gif-image');
 const gifUrl = 'imgs/foxy-jumpscare.gif';
+const jumpscareSoundUrl = 'imgs/foxy-jumpscare.mp3';
+const GIF_DURATION_MS = 850;
+const START_DELAY_MS = 4000;
 let timeoutId = null;
+let audioUnlocked = false;
+let pendingAudioGesture = false;
+let jumpscareShown = false;
+let jumpscareActive = false;
+
+const jumpscareAudio = new Audio(jumpscareSoundUrl);
+jumpscareAudio.preload = 'auto';
+jumpscareAudio.volume = 1;
+
+function unlockJumpscareAudio() {
+    if (audioUnlocked) return;
+    jumpscareAudio.play()
+        .then(() => {
+            jumpscareAudio.pause();
+            jumpscareAudio.currentTime = 0;
+            audioUnlocked = true;
+        })
+        .catch(() => {
+            audioUnlocked = false;
+        });
+}
+
+window.addEventListener('pointerdown', unlockJumpscareAudio, { once: true });
+
+function playJumpscareAudio() {
+    jumpscareAudio.currentTime = 0;
+    jumpscareAudio.play().catch(() => {
+        pendingAudioGesture = true;
+        console.log('Jumpscare audio blocked or missing file:', jumpscareSoundUrl);
+    });
+}
+
+window.addEventListener('pointerdown', () => {
+    if (!pendingAudioGesture) return;
+    const { overlay } = getGifElements();
+    if (!overlay || overlay.style.display === 'none') return;
+
+    pendingAudioGesture = false;
+    jumpscareAudio.currentTime = 0;
+    jumpscareAudio.play().catch(() => {
+        pendingAudioGesture = true;
+    });
+});
+
+function getPopupElement() {
+    return document.getElementById('popup');
+}
+
+function getGifElements() {
+    return {
+        overlay: document.getElementById('gif-overlay'),
+        img: document.getElementById('gif-image')
+    };
+}
 
 
 
@@ -22,20 +76,22 @@ function getRandomPercentage(perc) {
 
 
 function showPopup() {
-    if (getRandomPercentage(2)) { // 20% esély a popup megjelenésére) {
-        popup.style.display = 'flex';
-    } else {
-        console.log("No popup this time!");
-    }
+    const popup = getPopupElement();
+    if (!popup) return;
+    popup.style.display = 'flex';
 
 };
 
-popup.addEventListener('click', () => {
-    popup.style.display = 'none';
-});
+const popup = getPopupElement();
+if (popup) {
+    popup.addEventListener('click', () => {
+        popup.style.display = 'none';
+    });
+}
 
 window.addEventListener('click', (event) => {
-    if (event.target === popup) {
+    const popup = getPopupElement();
+    if (popup && event.target === popup) {
         popup.style.display = 'none';
     }
 });
@@ -46,29 +102,64 @@ window.addEventListener('click', (event) => {
 
 
 function showGif(){
-        img.src = gifUrl;
+    if (jumpscareShown || jumpscareActive) return;
+    const { overlay, img } = getGifElements();
+        if (!img || !overlay) {
+            setTimeout(() => {
+                const retry = getGifElements();
+                if (retry.img && retry.overlay) {
+                    showGif();
+                }
+            }, 120);
+            return;
+        }
+        jumpscareShown = true;
+        jumpscareActive = true;
         overlay.style.display = 'flex';
+        img.src = gifUrl;
         img.style.height = '100vh';
         img.style.width = '100vw';
+        playJumpscareAudio();
         clearTimeout(timeoutId);
-        timeoutId = setTimeout(hideGif, 5000);
+        timeoutId = setTimeout(hideGif, GIF_DURATION_MS);
 }
 function hideGif(){
+    const { overlay, img } = getGifElements();
+    if (!img || !overlay) return;
         overlay.style.display = 'none';
         img.src = '';
+    pendingAudioGesture = false;
+        jumpscareAudio.pause();
+        jumpscareAudio.currentTime = 0;
+    jumpscareActive = false;
         clearTimeout(timeoutId);
 }
 
 
-function showShit(){
-    if (getRandomPercentage(5)) {
-        console.log("helo motherfucker");
-        showGif();
-    };
-    if (getRandomPercentage(2)) {
+function runLoadTriggers() {
+    const willShowPopup = getRandomPercentage(3);
+
+    if (willShowPopup) {
+        console.log('[popup.js] Popup triggered immediately.');
         showPopup();
-    };
-};
+        return;
+    }
+
+    console.log(`[popup.js] No popup. Waiting`);
+    setTimeout(() => {
+        const willShowJumpscare = getRandomPercentage(1);
+        if (willShowJumpscare) {
+            console.log('[popup.js] Jumpscare triggered.');
+            showGif();
+        } else {
+            console.log('[popup.js] No popup and no jumpscare this load.');
+        }
+    }, START_DELAY_MS);
+}
 
 
-document.addEventListener("DOMContentLoaded", showShit);
+if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', runLoadTriggers);
+} else {
+    runLoadTriggers();
+}
