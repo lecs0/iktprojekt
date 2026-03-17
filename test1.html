@@ -11,43 +11,23 @@
             align-items: center;
         }
         .popup-content {
-            background: #fff;
-            padding: 20px;
-            border-radius: 5px;
             text-align: center;
         }
     </style>
 </head>
 <body>
-    <button id="openPopup" style="padding: 10px 20px; background-color: #28a745; 
-                                  color: #fff; border: none; border-radius: 5px;">Open Popup</button>
     <div id="popup" class="popup">
         <div class="popup-content">
-            <h2>Popup Title</h2>
-            <p>This popup is controlled with JavaScript.</p>
-            <button id="closePopup" style="margin-top: 10px; padding:
-                                           5px 10px; background-color: #dc3545; color: #fff; 
-                                           border: none; border-radius: 3px;">Close</button>
+            <img src="imgs/albanianvirus.png" alt="">
         </div>
     </div>
-    <script>
-        const openPopup = document.getElementById('openPopup');
-        const closePopup = document.getElementById('closePopup');
-        const popup = document.getElementById('popup');
+    <script src="popup.js"></script>
 
-        openPopup.addEventListener('click', () => {
-            popup.style.display = 'flex';
-        });
 
-        closePopup.addEventListener('click', () => {
-            popup.style.display = 'none';
-        });
+    <div id="gif-overlay" style="display:none; position:fixed; inset:0; background:rgba(0,0,0,0.92); justify-content:center; align-items:center; z-index:1050;">
+        <img id="gif-image" src="imgs/flashbang.gif" alt="gif">
+    </div>
 
-        window.addEventListener('click', (event) => {
-            if (event.target === popup) {
-                popup.style.display = 'none';
-            }
-        });
-    </script>
+
 </body>
 </html>
