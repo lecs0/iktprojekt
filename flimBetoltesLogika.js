@@ -96,16 +96,26 @@ const movies = [
     },
     {
         id: 8,
-        title: "",
-        img: "",
-        description: "",
-        genre: "",
-        release: "",
-        duration: "",
-        country: "",
-        movie: ""
+        title: "F1 – A film",
+        img: "https://image.tmdb.org/t/p/original/vqBmyAj0Xm9LnS1xe1MSlMAJyHq.jpg",
+        description: "Brad Pitt egy korábbi autóversenyzőt alakít, aki meglepetésszerűen visszatér a Forma–1-be Damson Idris fiatal, tehetséges csapattársa mellett az APXGP istállójába. A történet a pályán és azon kívül is követi dinamikus együttműködésüket, ahogy személyes és szakmai kihívásokkal küzdenek, hogy megőrizzék helyüket a motorsport csúcsán.",
+        genre: "Akció, Dráma",
+        release: "2025",
+        duration: "155",
+        country: "US",
+        movie: "https://vk.com/video_ext.php?oid=-229926412&id=456242688&hash=78a7e8e34b02d820"
+    },
+    {
+        id: 9,
+        title: "SpongyaBob – A mozifilm",
+        img: "https://media.themoviedb.org/t/p/w600_and_h900_bestv2/eex7xss44GKRATpujaOtGB8X5G1.jpg",
+        description: "Kellemes, nyugodt az élet Bikinifenéken, ahol ananász a lakás és a herkentyűburger mindig friss és meleg a sarki Rák-csálóban. Valóságos Paradicsom, amit SpongyaBob Kockanadrág az otthonának nevez. Ám minden megváltozik, amikor lába kél Neptunusz király koronájának, és kiderül, hogy a gaz Plankton diktátori terveket dédelget. SpongyaBob és legjobb barátja, a kelekótya Patrick elindul, hogy felkutassák a koronát, és keresztülhúzzák Plankton számítását. A kalandokkal teli úton új világokat fedeznek fel, veszedelmes szörnyetegekkel találkoznak.",
+        genre: "Rajzfilm",
+        release: "2004",
+        duration: "90",
+        country: "US",
+        movie: "https://vk.com/video_ext.php?oid=-229945191&id=456239179&hd=2&hash=c74298e726ef88a4"
     }
-
 ];
 
 // hat ez nemtudom hogy jo lesz de majd megnezzuk mert ez letrehoz annyi postert amennyi film van de ezt lehet at kene alakitani a tamplateesre
