@@ -121,19 +121,43 @@ const movies = [
 // hat ez nemtudom hogy jo lesz de majd megnezzuk mert ez letrehoz annyi postert amennyi film van de ezt lehet at kene alakitani a tamplateesre
 function displayMovieList() {
     const posterRow = document.getElementById('poster-row');
+    const  areWeOnMain = document.getElementsByClassName('hero')[0];
     if (!posterRow) return; // -> igy talalom meg melyik oldalon vagyunk
-    
-    movies.forEach(movie => {
-        const card = document.createElement('article');
-        card.className = 'poster-card';
-        card.onclick = () => window.location.href = `movies.html?id=${movie.id}`;
-        card.innerHTML = `
-            <img src="${movie.img}" alt="${movie.title} poster">
-            <span>${movie.title}</span>
-        `;
-        posterRow.appendChild(card);
-    });
-}
+    if (!areWeOnMain){
+        console.log("Not on main page, displaying all movies...");
+        movies.forEach(movie => {
+            const card = document.createElement('article');
+            card.className = 'poster-card';
+            card.onclick = () => window.location.href = `movies.html?id=${movie.id}`;
+            card.innerHTML = `
+                <img src="${movie.img}" alt="${movie.title} poster">
+                <span>${movie.title}</span>
+            `;
+            posterRow.appendChild(card);
+        });
+    }
+    else {
+        const alreadyAdded = [];
+        let randomIndex;
+        for (let i = 0; i < 6; i++) {
+            do {
+                randomIndex = Math.floor(Math.random() * movies.length);
+            } while (alreadyAdded.includes(randomIndex));
+            alreadyAdded.push(randomIndex);
+            console.log('Current List of Added Movie Indices:', alreadyAdded);
+            const movie = movies[randomIndex];
+            const card = document.createElement('article');
+            card.className = 'poster-card';
+            card.onclick = () => window.location.href = `movies.html?id=${movie.id}`;
+            card.innerHTML = `
+                <img src="${movie.img}" alt="${movie.title} poster">
+                <span>${movie.title}</span>
+            `;
+            posterRow.appendChild(card);
+            };
+        };
+    };
+
 
 // id megkereses az urlbol
 function getMovieId() {
@@ -143,9 +167,10 @@ function getMovieId() {
 
 // rendes film oldala erre is kell majd egy kis atalakitas
 function displayMovieDetails() {
-    const movieId = getMovieId() || 0; // default to first movie if no id provided
+    const movieId = getMovieId() || 0;
     const movieCont = document.getElementById("movieCont");
-    
+    document.title = movies[movieId] ? movies[movieId].title : "Film Részletek"; // beallitom a titlet a film nevre
+
     if (!movieCont) return; // itt is azt nezem hogy nem e szar oldalon vagyunk
     
     const movieData = movies[movieId];
@@ -195,8 +220,8 @@ function displayMovieDetails() {
 
 // ez a varazslat ami eldonti hogy melyik oldalon is vagyink
 window.onload = function() {
-    console.log("Page loaded, initializing...");
     if (document.getElementById('poster-row')) {
+        console.log("Poster row found, displaying movie list...");
         displayMovieList(); // ha a main oldalon vagyunk
     } else if (document.getElementById('movieCont')) {
         console.log("Movie container found, displaying movie details...");
