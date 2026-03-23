@@ -1,5 +1,3 @@
-/* form conatiner formazas  */
-
 .form-container {
     width: 100%;
     max-width: 320px;
@@ -52,17 +50,12 @@
     text-decoration: underline rgba(167, 139, 250, 1) !important;
 }
 
-/* From Uiverse.io by jeremyssocial */
-
 .background {
     width: 100%;
     height: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
-  
-    /*megcsinaltam a szineket mostmar nez is ki valahogy*/
-
     background: #121212;
     background: linear-gradient(
       135deg,
@@ -86,8 +79,6 @@
       background-position: 40px 40px;
     }
   }
-  
-/* Felso vonal */
 
 .top-bar {
     position: fixed;
@@ -205,8 +196,6 @@
     z-index: 1000;
 }
 
-/* reszponziv geci szar fos utalom a htmlt */
-
 @media (max-width: 768px) {
     .form-container {
         padding: 1.5rem;
@@ -272,7 +261,6 @@
     }
 }
 
-/* main-oldal templatebol szedtem fingom sincs hogy mi mikor mit csinal :) de atszineztem a palett alapjan igy legalabb jol nez ki */
 .stream-page {
     margin: 0;
     min-height: 100vh;
@@ -593,7 +581,6 @@ main {
     margin-top: 0;
 }
 
-/* From Uiverse.io by joe-watson-sbf */ 
 .flip-card {
   background-color: transparent;
   width: 190px;
@@ -708,7 +695,6 @@ main {
     border: 5px outset white;
 }
 
-/* From Uiverse.io by Priyanshu02020 */ 
 #heart {
   display: none;
 }
@@ -795,8 +781,6 @@ main {
     transform: scale(1.2);
   }
 }
-
-
 
 .popup {
     display: none;
