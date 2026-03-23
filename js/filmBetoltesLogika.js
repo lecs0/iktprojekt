@@ -118,7 +118,7 @@ const movies = [
     }
 ];
 
-
+// halo mukodj szex 8
 
 function displayHero(){
     const heroCont = document.getElementsByClassName("hero")[0];
