@@ -120,43 +120,47 @@ const movies = [
 
 // hat ez nemtudom hogy jo lesz de majd megnezzuk mert ez letrehoz annyi postert amennyi film van de ezt lehet at kene alakitani a tamplateesre
 function displayMovieList() {
-    const posterRow = document.getElementById('poster-row');
-    const  areWeOnMain = document.getElementsByClassName('hero')[0];
-    if (!posterRow) return; // -> igy talalom meg melyik oldalon vagyunk
-    if (!areWeOnMain){
-        console.log("Not on main page, displaying all movies...");
-        movies.forEach(movie => {
-            const card = document.createElement('article');
-            card.className = 'poster-card';
-            card.onclick = () => window.location.href = `movies.html?id=${movie.id}`;
-            card.innerHTML = `
-                <img src="${movie.img}" alt="${movie.title} poster">
-                <span>${movie.title}</span>
-            `;
-            posterRow.appendChild(card);
-        });
-    }
-    else {
-        const alreadyAdded = [];
-        let randomIndex;
-        for (let i = 0; i < 6; i++) {
-            do {
-                randomIndex = Math.floor(Math.random() * movies.length);
-            } while (alreadyAdded.includes(randomIndex));
-            alreadyAdded.push(randomIndex);
-            console.log('Current List of Added Movie Indices:', alreadyAdded);
-            const movie = movies[randomIndex];
-            const card = document.createElement('article');
-            card.className = 'poster-card';
-            card.onclick = () => window.location.href = `movies.html?id=${movie.id}`;
-            card.innerHTML = `
-                <img src="${movie.img}" alt="${movie.title} poster">
-                <span>${movie.title}</span>
-            `;
-            posterRow.appendChild(card);
-            };
-        };
-    };
+  const posterRow = document.getElementById("poster-row");
+  const areWeOnMain = document.getElementsByClassName("hero")[0];
+
+  // if poster-row doesn't exist on the page, do nothing
+  if (!posterRow) return;
+
+  // helper to build a movie card
+  const createMovieCard = (movie) => {
+    const card = document.createElement("article");
+    card.className = "poster-card";
+    card.onclick = () => (window.location.href = `movies.html?id=${movie.id}`);
+    card.innerHTML = `
+      <img src="${movie.img}" alt="${movie.title} poster">
+      <span>${movie.title}</span>
+    `;
+    return card;
+  };
+
+  if (!areWeOnMain) {
+    console.log("Not on main page, displaying all movies...");
+    movies.forEach((movie) => {
+      posterRow.appendChild(createMovieCard(movie));
+    });
+    return;
+  }
+
+  const count = Math.min(6, movies.length);
+  const alreadyAdded = new Set();
+
+  while (alreadyAdded.size < count) {
+    const randomIndex = Math.floor(Math.random() * movies.length);
+    alreadyAdded.add(randomIndex);
+  }
+
+  console.log("Current List of Added Movie Indices:", [...alreadyAdded]);
+
+  for (const index of alreadyAdded) {
+    const movie = movies[index];
+    posterRow.appendChild(createMovieCard(movie));
+  }
+}
 
 
 // id megkereses az urlbol
