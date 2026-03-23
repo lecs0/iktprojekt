@@ -200,9 +200,13 @@ function displayMovieDetails() {
     document.title = movies[movieId] ? movies[movieId].title : "Film Részletek"; // beallitom a titlet a film nevre
 
     if (!movieCont) return; // itt is azt nezem hogy nem e szar oldalon vagyunk
-    
+
+    if (movieId >= movies.length || movieId < 0) {
+        movieCont.innerHTML = "<h1>ne probalkozz cigany</h1>";
+    }
+
     const movieData = movies[movieId];
-    if (!movieData) return; // ha valaki megprobalna random szamot beirni a film idhoz
+    if (!movieData) return;
     
     // displaygeci
     movieCont.innerHTML = `
