@@ -118,19 +118,43 @@ const movies = [
     }
 ];
 
+
+
+function displayHero(){
+    const heroCont = document.getElementsByClassName("hero")[0];
+
+    if (!heroCont) return;
+
+    const randomIndex = Math.floor(Math.random() * movies.length);
+    const movie = movies[randomIndex];
+
+    heroCont.innerHTML = `
+        <img id="kepecske" src="${movie.img}" alt="${movie.title} poster">
+        <div class="hero-backdrop"></div>
+        <div class="hero-content container">
+            <p class="hero-tag">Ajánlott</p>
+            <h1>${movie.title}</h1>
+            <div class="hero-actions">
+                <a class="hero-play" href="/movie.html?id=${movie.id}" title="Movies">Lejátszás</a>
+                <a class="hero-more" href="/movies.html">Többi film</a>
+            </div>
+        </div>
+    `;
+}
+
+//<p class="hero-description">${movie.description}</p>
+
 // hat ez nemtudom hogy jo lesz de majd megnezzuk mert ez letrehoz annyi postert amennyi film van de ezt lehet at kene alakitani a tamplateesre
 function displayMovieList() {
   const posterRow = document.getElementById("poster-row");
   const areWeOnMain = document.getElementsByClassName("hero")[0];
 
-  // if poster-row doesn't exist on the page, do nothing
   if (!posterRow) return;
 
-  // helper to build a movie card
   const createMovieCard = (movie) => {
     const card = document.createElement("article");
     card.className = "poster-card";
-    card.onclick = () => (window.location.href = `movies.html?id=${movie.id}`);
+    card.onclick = () => (window.location.href = `movie.html?id=${movie.id}`);
     card.innerHTML = `
       <img src="${movie.img}" alt="${movie.title} poster">
       <span>${movie.title}</span>
@@ -226,6 +250,7 @@ function displayMovieDetails() {
 window.onload = function() {
     if (document.getElementById('poster-row')) {
         console.log("Poster row found, displaying movie list...");
+        displayHero();
         displayMovieList(); // ha a main oldalon vagyunk
     } else if (document.getElementById('movieCont')) {
         console.log("Movie container found, displaying movie details...");
