@@ -202,7 +202,10 @@ function displayMovieDetails() {
     if (!movieCont) return; // itt is azt nezem hogy nem e szar oldalon vagyunk
 
     if (movieId >= movies.length || movieId < 0) {
-        movieCont.innerHTML = "<h1>ne probalkozz cigany</h1>";
+        console.error("Invalid movie ID:", movieId);
+        title = "Error - Film nem található";
+        movieCont.innerHTML = '<h1 style="margin-top: 50vh; text-align: center;">NE is próbáld megváltoztatni az URL-t, mert nem fog működni!<br><span style="color: red;">Buta cigany!</span></h1>';
+        return;
     }
 
     const movieData = movies[movieId];
