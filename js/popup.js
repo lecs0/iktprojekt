@@ -33,7 +33,6 @@ function playJumpscareAudio() {
     jumpscareAudio.currentTime = 0;
     jumpscareAudio.play().catch(() => {
         pendingAudioGesture = true;
-        console.log('Jumpscare audio blocked or missing file:', jumpscareSoundUrl);
     });
 }
 
@@ -140,19 +139,14 @@ function runLoadTriggers() {
     const willShowPopup = getRandomPercentage(3);
 
     if (willShowPopup) {
-        console.log('[popup.js] Popup triggered immediately.');
         showPopup();
         return;
     }
 
-    console.log(`[popup.js] No popup. Waiting`);
     setTimeout(() => {
         const willShowJumpscare = getRandomPercentage(1);
         if (willShowJumpscare) {
-            console.log('[popup.js] Jumpscare triggered.');
             showGif();
-        } else {
-            console.log('[popup.js] No popup and no jumpscare this load.');
         }
     }, START_DELAY_MS);
 }

@@ -163,7 +163,6 @@ function displayMovieList() {
   };
 
   if (!areWeOnMain) {
-    console.log("Not on main page, displaying all movies...");
     movies.forEach((movie) => {
       posterRow.appendChild(createMovieCard(movie));
     });
@@ -177,8 +176,6 @@ function displayMovieList() {
     const randomIndex = Math.floor(Math.random() * movies.length);
     alreadyAdded.add(randomIndex);
   }
-
-  console.log("Current List of Added Movie Indices:", [...alreadyAdded]);
 
   for (const index of alreadyAdded) {
     const movie = movies[index];
@@ -202,7 +199,6 @@ function displayMovieDetails() {
     if (!movieCont) return; // itt is azt nezem hogy nem e szar oldalon vagyunk
 
     if (movieId >= movies.length || movieId < 0) {
-        console.error("Invalid movie ID:", movieId);
         title = "Error - Film nem található";
         movieCont.innerHTML = '<h1 style="margin-top: 50vh; text-align: center;">NE is próbáld megváltoztatni az URL-t, mert nem fog működni!<br><span style="color: red;">Buta cigany!</span></h1>';
         return;
@@ -253,16 +249,14 @@ function displayMovieDetails() {
 
 
 
+
 // ez a varazslat ami eldonti hogy melyik oldalon is vagyink
 window.onload = function() {
     if (document.getElementById('poster-row')) {
-        console.log("Poster row found, displaying movie list...");
         displayHero();
         displayMovieList(); // ha a main oldalon vagyunk
     } else if (document.getElementById('movieCont')) {
-        console.log("Movie container found, displaying movie details...");
         displayMovieDetails(); // ez meg a film
-        console.log("Movie details displayed.");
     }
 };
 
