@@ -145,27 +145,46 @@ function displayHero(){
 //<p class="hero-description">${movie.description}</p>
 
 // hat ez nemtudom hogy jo lesz de majd megnezzuk mert ez letrehoz annyi postert amennyi film van de ezt lehet at kene alakitani a tamplateesre
+function createMovieCard(movie) {
+    const col = document.createElement("div");
+    col.className = "col-6 col-md-4 col-lg-3 col-xl-2";
+    col.innerHTML = `
+        <article class="poster-card h-100" role="button" tabindex="0" data-movie-id="${movie.id}">
+            <img src="${movie.img}" alt="${movie.title} poster" class="w-100">
+            <span>${movie.title}</span>
+        </article>
+    `;
+
+    const card = col.querySelector('.poster-card');
+    card.onclick = () => (window.location.href = `movie.html?id=${movie.id}`);
+    card.addEventListener('keydown', (event) => {
+        if (event.key === 'Enter' || event.key === ' ') {
+            event.preventDefault();
+            window.location.href = `movie.html?id=${movie.id}`;
+        }
+    });
+
+    return col;
+}
+
+function makeMovieRow(movieList) {
+    const posterRow = document.getElementById("poster-row");
+    if (!posterRow) return;
+
+    posterRow.innerHTML = "";
+    movieList.forEach((movie) => {
+        posterRow.appendChild(createMovieCard(movie));
+    });
+}
+
 function displayMovieList() {
   const posterRow = document.getElementById("poster-row");
   const areWeOnMain = document.getElementsByClassName("hero")[0];
 
   if (!posterRow) return;
 
-  const createMovieCard = (movie) => {
-    const card = document.createElement("article");
-    card.className = "poster-card";
-    card.onclick = () => (window.location.href = `movie.html?id=${movie.id}`);
-    card.innerHTML = `
-      <img src="${movie.img}" alt="${movie.title} poster">
-      <span>${movie.title}</span>
-    `;
-    return card;
-  };
-
   if (!areWeOnMain) {
-    movies.forEach((movie) => {
-      posterRow.appendChild(createMovieCard(movie));
-    });
+        makeMovieRow(movies);
     return;
   }
 
@@ -181,6 +200,64 @@ function displayMovieList() {
     const movie = movies[index];
     posterRow.appendChild(createMovieCard(movie));
   }
+}
+
+
+// kereses (lopott az egesz(kicsit megvaltoztatva))
+function normalizeSearchText(value) {
+    return String(value || '').toLowerCase().trim();
+}
+
+function matchesSearch(movie, query) {
+    if (!query) return true;
+
+    return normalizeSearchText(movie.title).includes(query);
+}
+
+function initMoviesSearch() {
+    const posterRow = document.getElementById('poster-row');
+    const searchInput = document.getElementById('movies-search-input');
+    const resultText = document.getElementById('movies-search-result');
+    const areWeOnMain = document.getElementsByClassName('hero')[0];
+
+    if (!posterRow || !searchInput || !resultText || areWeOnMain) return;
+
+    const applySearch = () => {
+        const query = normalizeSearchText(searchInput.value);
+        const filteredMovies = movies.filter((movie) => matchesSearch(movie, query));
+        makeMovieRow(filteredMovies);
+        resultText.classList.remove('movies-search-result-empty');
+
+        if (!query) {
+            resultText.textContent = `${movies.length} film`;
+            return;
+        }
+
+
+        if (filteredMovies.length === 0) {
+            resultText.textContent = 'Nincs találat';
+            resultText.classList.add('movies-search-result-empty');
+            return;
+        }
+
+        resultText.textContent = `${filteredMovies.length} találat`;
+
+
+    };
+
+    searchInput.addEventListener('keydown', (event) => {
+        if (event.key === 'Enter') {
+            event.preventDefault();
+            applySearch();
+        }
+        if (event.key === 'Escape') {
+            searchInput.value = '';
+            applySearch();
+        }
+    });
+    searchInput.addEventListener('input', applySearch);
+
+    applySearch();
 }
 
 
@@ -207,42 +284,41 @@ function displayMovieDetails() {
     const movieData = movies[movieId];
     if (!movieData) return;
     
-    // displaygeci
     movieCont.innerHTML = `
-<div class="movie-detail">
-    <div class="row"><h2 class="movie-title">${movieData.title}</h2>
-    </div>
-    <div class="movie-poster">
-        <img src="${movieData.img}" alt="${movieData.title} poster">
-    </div>
-    <div class="row">
-        <div class="movie-info">
-            <p class="movie-meta">Műfaj: ${movieData.genre} <br>Megjelenés: ${movieData.release} <br>Hossz: ${movieData.duration} perc<br>Ország: ${movieData.country}</p>
-            <p class="movie-description">${movieData.description}</p>
+<section class="movie-detail py-4 py-lg-5">
+    <div class="container-fluid px-0">
+        <div class="row g-4 align-items-start">
+            <div class="col-12 col-sm-6 col-lg-3">
+                <div class="movie-poster">
+                    <img src="${movieData.img}" alt="${movieData.title} poster" class="img-fluid rounded-3">
+                </div>
+            </div>
+            <div class="col-12 col-lg-9">
+                <h2 class="movie-title mb-3">${movieData.title}</h2>
+                <p class="movie-meta mb-3">Műfaj: ${movieData.genre} <br>Megjelenés: ${movieData.release} <br>Hossz: ${movieData.duration} perc<br>Ország: ${movieData.country}</p>
+                <p class="movie-description mb-4">${movieData.description}</p>
+
+                <div class="like-button">
+                    <input class="on" id="heart" type="checkbox" />
+                    <label class="like" for="heart">
+                        <svg class="like-icon" fill-rule="nonzero" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path d="m11.645 20.91-.007-.003-.022-.012a15.247 15.247 0 0 1-.383-.218 25.18 25.18 0 0 1-4.244-3.17C4.688 15.36 2.25 12.174 2.25 8.25 2.25 5.322 4.714 3 7.688 3A5.5 5.5 0 0 1 12 5.052 5.5 5.5 0 0 1 16.313 3c2.973 0 5.437 2.322 5.437 5.25 0 3.925-2.438 7.111-4.739 9.256a25.175 25.175 0 0 1-4.244 3.17 15.247 15.247 0 0 1-.383.219l-.022.012-.007.004-.003.001a.752.752 0 0 1-.704 0l-.003-.001Z"></path>
+                        </svg>
+                        <span class="like-text">Likes</span>
+                    </label>
+                    <span class="like-count one">66</span>
+                    <span class="like-count two">67</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="video-container mt-4 mt-lg-5">
+            <div class="ratio ratio-16x9">
+                <iframe src="${movieData.movie}" allowfullscreen webkitallowfullscreen mozallowfullscreen></iframe>
+            </div>
         </div>
     </div>
-
-    
-</div>
-
-<div class="like-button">
-<input class="on" id="heart" type="checkbox" />
-<label class="like" for="heart">
-    <svg class="like-icon" fill-rule="nonzero" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-        <path d="m11.645 20.91-.007-.003-.022-.012a15.247 15.247 0 0 1-.383-.218 25.18 25.18 0 0 1-4.244-3.17C4.688 15.36 2.25 12.174 2.25 8.25 2.25 5.322 4.714 3 7.688 3A5.5 5.5 0 0 1 12 5.052 5.5 5.5 0 0 1 16.313 3c2.973 0 5.437 2.322 5.437 5.25 0 3.925-2.438 7.111-4.739 9.256a25.175 25.175 0 0 1-4.244 3.17 15.247 15.247 0 0 1-.383.219l-.022.012-.007.004-.003.001a.752.752 0 0 1-.704 0l-.003-.001Z"></path>
-    </svg>
-    <span class="like-text">Likes</span>
-</label>
-<span class="like-count one">66</span>
-<span class="like-count two">67</span>
-</div>
-</div>
-
-
-
-<div class="video-container">
-    <iframe src="${movieData.movie}" width="880vw" height="500vh" allowfullscreen webkitallowfullscreen mozallowfullscreen></iframe>
-</div>
+</section>
         `;
     
 }
@@ -255,6 +331,7 @@ window.onload = function() {
     if (document.getElementById('poster-row')) {
         displayHero();
         displayMovieList(); // ha a main oldalon vagyunk
+        initMoviesSearch();
     } else if (document.getElementById('movieCont')) {
         displayMovieDetails(); // ez meg a film
     }
@@ -262,3 +339,7 @@ window.onload = function() {
 
 
 //utalom a ciganyokat
+//utalom a html-t
+//mostmar a bootstrappet is 
+//ez ra fog kerulni az ongyilkossagi ok listamra
+//meg mindig nemtudok jsben programozni :C

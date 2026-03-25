@@ -10,11 +10,13 @@
     <script src="js/ads.js"></script>
     <title>Bejelentkezés</title>
 </head>
-<body class="background login-page" style="display: flex; flex-direction: column; min-height: 100vh;">
-    <nav class="top-bar">
-        <a href="#" class="logo-container">
-            <img src="imgs/2.png" alt="logo" class="logo">
-        </a>
+<body class="background login-page d-flex flex-column min-vh-100">
+    <nav class="navbar navbar-dark app-navbar fixed-top shadow-sm">
+        <div class="container-fluid px-3 px-lg-4">
+            <a class="navbar-brand d-flex align-items-center" href="#">
+                <img src="imgs/2.png" alt="logo" class="stream-logo">
+            </a>
+        </div>
     </nav>
     <div class="ad-container ad-bottom-right" id="ad-container">
     </div>
@@ -25,29 +27,33 @@
         </div>
     </div>
     <script src="js/popup.js"></script>
-    <div style="position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%); z-index: 10;">
-        <div class="form-container">
-            <form class="form">
-                <div class="mb-3">
-                    <label for="username" class="form-label">Felhasználónév</label>
-                    <input type="text" class="form-control" name="username" id="username" placeholder="">
+    <main class="container flex-grow-1 d-flex align-items-center justify-content-center py-5 pt-5">
+        <div class="row justify-content-center w-100">
+            <div class="col-12 col-sm-10 col-md-8 col-lg-5 col-xl-4">
+                <div class="form-container mx-auto">
+                    <form class="form">
+                        <div class="mb-3">
+                            <label for="username" class="form-label">Felhasználónév</label>
+                            <input type="text" class="form-control" name="username" id="username" placeholder="">
+                        </div>
+                        <div class="mb-3">
+                            <label for="password" class="form-label">Jelszó</label>
+                            <input type="password" class="form-control" name="password" id="password" placeholder="">
+                            <div class="text-center mt-2">
+                                <a rel="noopener noreferrer" id="forgor" href="forgot.html" class="small text-muted">Elfelejtettem a jelszavam</a>
+                            </div>
+                        </div>
+                        <button type="button" class="btn btn-primary w-100 mt-1" onclick="window.location.href='main.html'">Bejelentkezés</button>
+                    </form>
+                    <p id="gif-text" class="text-center text-muted mt-2 small" style="cursor:pointer">Ez egy privát szolgáltatás!</p>
                 </div>
-                <div class="mb-3">
-                    <label for="password" class="form-label">Jelszó</label>
-                    <input type="password" class="form-control" name="password" id="password" placeholder="">
-                    <div style="text-align: center; margin-top: 0.5rem;">
-                        <a rel="noopener noreferrer" id="forgor" href="forgot.html" class="small text-muted">Elfelejtettem a jelszavam</a>
-                    </div>
-                </div>
-                <button type="button" class="btn btn-primary w-100 mt-1" onclick="window.location.href='main.html'">Bejelentkezés</button>
-            </form>
-            <p id="gif-text" class="text-center text-muted mt-2 small" style="cursor:pointer">Ez egy privát szolgáltatás!</p>
+            </div>
         </div>
-    </div>
+    </main>
     <div id="gif-overlay" style="display:none; position:fixed; inset:0; background:rgba(0,0,0,0.92); justify-content:center; align-items:center; z-index:1050;">
         <img id="gif-image" src="imgs/flashbang.gif" alt="gif">
     </div>
-    <footer class="stream-footer" style="margin-top: auto;">
+    <footer class="stream-footer mt-auto">
         <p>RatZ way. - Bármi lehetséges, ha geeker vagy</p>
         <p>© 2026 RatZ | Minden jog fenntartva</p>
     </footer>

@@ -24,51 +24,51 @@
     </div>
 	<div class="ad-container ad-bottom-right" id="ad-container">
 	</div>
-	<header class="stream-nav">
-		<div class="stream-nav-left">
-			<a href="main.html">
-			<img src="imgs/2.png" alt="logo" class="stream-logo">
-			</a>
-			<nav class="stream-links">
-				<a href="main.html" title="Go to the top">Főoldal</a>
-				<a href="#">Filmek</a>
-				<a href="https://open.spotify.com/playlist/1bYK6vRq6eCEdo7YGowFkb" title="My list">Az én listám</a>
-				<a href="https://www.youtube.com/@einerecords" target="_blank" title="Geeker radio">Türr.fm</a>
-				<a href="https://gyogyitokezekhaza.lapunk.hu/tibeti-hangtal-terapia-1188130" target="_blank"
-					title="Trust the process">Terápia</a>
-			</nav>
-		</div>
-		<div class="stream-nav-right">
-			<button class="stream-nav-btn">Keresés</button>
-			<button class="stream-nav-btn">Státusz</button>
-			<div class="dropdown">
-				<button class="stream-profile" id="accountDropdown" data-bs-toggle="dropdown"
-					aria-expanded="false"></button>
-				<ul class="dropdown-menu dropdown-menu-end dropdown-menu-dark" aria-labelledby="accountDropdown">
-					<li>
-						<h6 class="dropdown-header">Fiók</h6>
-					</li>
-					<li>
-						<hr class="dropdown-divider">
-					</li>
-					<li><a class="dropdown-item" href="#">Profil</a>
-					</li>
-					<li><a class="dropdown-item" href="#">Beállítások</a>
-					</li>
-					<li>
-						<hr class="dropdown-divider">
-					</li>
-					<li><a class="dropdown-item text-danger" href="index.html">Kijelentkezés</a>
-					</li>
-				</ul>
+	<header>
+		<nav class="navbar navbar-expand-lg navbar-dark app-navbar fixed-top shadow-sm">
+			<div class="container-fluid px-3 px-lg-4">
+				<a class="navbar-brand d-flex align-items-center" href="main.html">
+					<img src="imgs/2.png" alt="logo" class="stream-logo">
+				</a>
+				<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#moviesNavbar" aria-controls="moviesNavbar" aria-expanded="false" aria-label="Toggle navigation">
+					<span class="navbar-toggler-icon"></span>
+				</button>
+				<div class="collapse navbar-collapse" id="moviesNavbar">
+					<ul class="navbar-nav me-auto mb-2 mb-lg-0">
+						<li class="nav-item"><a class="nav-link" href="main.html">Főoldal</a></li>
+						<li class="nav-item"><a class="nav-link active" href="#">Filmek</a></li>
+						<li class="nav-item"><a class="nav-link" href="https://open.spotify.com/playlist/1bYK6vRq6eCEdo7YGowFkb" target="_blank">Az én listám</a></li>
+						<li class="nav-item"><a class="nav-link" href="https://www.youtube.com/@einerecords" target="_blank">Türr.fm</a></li>
+						<li class="nav-item"><a class="nav-link" href="https://gyogyitokezekhaza.lapunk.hu/tibeti-hangtal-terapia-1188130" target="_blank">Terápia</a></li>
+					</ul>
+					<div class="d-flex align-items-center gap-2">
+						<div class="dropdown">
+							<button class="stream-profile" id="accountDropdown" data-bs-toggle="dropdown" aria-expanded="false"></button>
+							<ul class="dropdown-menu dropdown-menu-end dropdown-menu-dark" aria-labelledby="accountDropdown">
+								<li><h6 class="dropdown-header">Fiók</h6></li>
+								<li><hr class="dropdown-divider"></li>
+								<li><a class="dropdown-item" href="#">Profil</a></li>
+								<li><a class="dropdown-item" href="#">Beállítások</a></li>
+								<li><hr class="dropdown-divider"></li>
+								<li><a class="dropdown-item text-danger" href="index.html">Kijelentkezés</a></li>
+							</ul>
+						</div>
+					</div>
+				</div>
 			</div>
-		</div>
+		</nav>
 	</header>
-	<main>
+	<main class="pt-5">
 		<script src="js/filmBetoltesLogika.js"></script>
-		<section class="content-rail container pt-5 mt-4">
-			<h1 class="mb-3">Az összes film</h1>
-			<div class="poster-row" id="poster-row">
+		<section class="content-rail container py-4 mt-4">
+			<div class="movies-header-row">
+				<h1 class="movies-header-title">Az összes film</h1>
+				<div id="movies-search-wrapper" class="movies-search-inline">
+					<input id="movies-search-input" type="text" class="form-control movies-search-input" placeholder="Keresés cím alapján...">
+				</div>
+			</div>
+			<small id="movies-search-result" class="movies-search-result"></small>
+			<div class="row g-3" id="poster-row">
 			</div>
 		</section>
 </main>
