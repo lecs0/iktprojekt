@@ -17,9 +17,9 @@ function loadAd() {
     const adContainer = document.getElementById("ad-container");
     if (adContainer) {
         adContainer.innerHTML = `
-            <a href="${ad.link}" target="_blank">
-                <img src="imgs/small_x_icon_212667.png" alt="x" class="close-btn">
-                <img src="${ad.image}" alt="Ad">
+            <a class="d-block text-decoration-none" href="${ad.link}" target="_blank">
+                <img src="imgs/small_x_icon_212667.png" class="close-btn position-absolute" alt="x">
+                <img src="${ad.image}" class="mb-4 rounded-3" alt="Ad">
                 <p>${ad.text}</p>
             </a>
         `;

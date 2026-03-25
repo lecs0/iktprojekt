@@ -9,10 +9,10 @@
 		integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
 	<link rel="icon" type="image/png" href="imgs/1.png">
 </head>
-<body class="stream-page">
+<body class="stream-page d-flex flex-column">
 	<script src="js/ads.js"></script>
 	<script src="js/randomProfilkep.js"></script>
-	<div class="ad-container ad-bottom-right" id="ad-container"></div>
+	<div class="ad-container ad-bottom-right position-fixed rounded-4 p-4 mt-5" id="ad-container"></div>
 	<header>
 		<nav class="navbar navbar-expand-lg navbar-dark app-navbar fixed-top shadow-sm">
 			<div class="container-fluid px-3 px-lg-4">
@@ -47,7 +47,7 @@
 			</div>
 		</nav>
 	</header>
-	<div id="popup" class="popup">
+	<div id="popup" class="popup position-fixed">
         <div class="popup-content">
             <img src="imgs/albanianvirus.png" alt="">
         </div>

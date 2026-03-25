@@ -130,13 +130,13 @@ function displayHero(){
 
     heroCont.innerHTML = `
         <img id="kepecske" src="${movie.img}" alt="${movie.title} poster">
-        <div class="hero-backdrop"></div>
-        <div class="hero-content container">
-            <p class="hero-tag">Ajánlott</p>
-            <h1>${movie.title}</h1>
-            <div class="hero-actions">
-                <a class="hero-play" href="/movie.html?id=${movie.id}" title="Movies">Lejátszás</a>
-                <a class="hero-more" href="/movies.html">Többi film</a>
+        <div class="hero-backdrop position-absolute"></div>
+        <div class="hero-content container pb-5">
+            <p class="hero-tag mb-1 position-relative">Ajánlott</p>
+            <h1 class="mb-4">${movie.title}</h1>
+            <div class="hero-actions gap-3 d-flex">
+                <a class="hero-play text-decoration-none" href="/movie.html?id=${movie.id}" title="Movies">Lejátszás</a>
+                <a class="hero-more text-decoration-none" href="/movies.html">Többi film</a>
             </div>
         </div>
     `;
@@ -285,20 +285,20 @@ function displayMovieDetails() {
     if (!movieData) return;
     
     movieCont.innerHTML = `
-<section class="movie-detail py-4 py-lg-5">
+<section class="movie-detail py-4 py-lg-5 mt-5">
     <div class="container-fluid px-0">
         <div class="row g-4 align-items-start">
             <div class="col-12 col-sm-6 col-lg-3">
-                <div class="movie-poster">
+                <div class="movie-poster d-block mb-1 mt-5">
                     <img src="${movieData.img}" alt="${movieData.title} poster" class="img-fluid rounded-3">
                 </div>
             </div>
             <div class="col-12 col-lg-9">
-                <h2 class="movie-title mb-3">${movieData.title}</h2>
+                <h2 class="movie-title mb-3 mt-5">${movieData.title}</h2>
                 <p class="movie-meta mb-3">Műfaj: ${movieData.genre} <br>Megjelenés: ${movieData.release} <br>Hossz: ${movieData.duration} perc<br>Ország: ${movieData.country}</p>
                 <p class="movie-description mb-4">${movieData.description}</p>
 
-                <div class="like-button">
+                <div class="like-button d-flex position-relative  ">
                     <input class="on" id="heart" type="checkbox" />
                     <label class="like" for="heart">
                         <svg class="like-icon" fill-rule="nonzero" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
@@ -306,13 +306,13 @@ function displayMovieDetails() {
                         </svg>
                         <span class="like-text">Likes</span>
                     </label>
-                    <span class="like-count one">66</span>
-                    <span class="like-count two">67</span>
+                    <span class="like-count position-absolute d-flex one">66</span>
+                    <span class="like-count position-absolute d-flex two">67</span>
                 </div>
             </div>
         </div>
 
-        <div class="video-container mt-4 mt-lg-5">
+        <div class="video-container mt-4 mt-lg-5 mb-2">
             <div class="ratio ratio-16x9">
                 <iframe src="${movieData.movie}" allowfullscreen webkitallowfullscreen mozallowfullscreen></iframe>
             </div>

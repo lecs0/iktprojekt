@@ -9,20 +9,19 @@
 		integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
 	<link rel="icon" type="image/png" href="imgs/1.png">
 </head>
-<body class="stream-page">
+<body class="stream-page d-flex flex-column">
 	<script src="js/ads.js"></script>
 	<script src="js/randomProfilkep.js"></script>
-	<div id="popup" class="popup">
+	<div id="popup" class="popup position-fixed">
         <div class="popup-content">
             <img src="imgs/albanianvirus.png" alt="">
         </div>
     </div>
     <script src="js/popup.js"></script>
-
 	<div id="gif-overlay" style="display:none; position:fixed; inset:0; background:rgba(0,0,0,0.92); justify-content:center; align-items:center; z-index:1050;">
         <img id="gif-image" src="imgs/flashbang.gif" alt="gif">
     </div>
-	<div class="ad-container ad-bottom-right" id="ad-container">
+	<div class="ad-container ad-bottom-right position-fixed rounded-4 p-4 mt-5" id="ad-container">
 	</div>
 	<header>
 		<nav class="navbar navbar-expand-lg navbar-dark app-navbar fixed-top shadow-sm">
@@ -43,7 +42,7 @@
 					</ul>
 					<div class="d-flex align-items-center gap-2">
 						<div class="dropdown">
-							<button class="stream-profile" id="accountDropdown" data-bs-toggle="dropdown" aria-expanded="false"></button>
+							<button class="stream-profile rounded-5" id="accountDropdown" data-bs-toggle="dropdown" aria-expanded="false"></button>
 							<ul class="dropdown-menu dropdown-menu-end dropdown-menu-dark" aria-labelledby="accountDropdown">
 								<li><h6 class="dropdown-header">Fiók</h6></li>
 								<li><hr class="dropdown-divider"></li>
@@ -59,10 +58,10 @@
 		</nav>
 	</header>
 	<main class="pt-5">
-		<section class="hero">
+		<section class="hero position-relative pt-5 d-flex align-items-end">
 		</section>
 		<script src="js/filmBetoltesLogika.js"></script>
-		<section class="content-rail container py-3">
+		<section class="content-rail container py-3 mb-5">
 			<h2>Népszerű</h2>
 			<div class="row g-3" id="poster-row">
 			</div>
