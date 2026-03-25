@@ -1,59 +1,54 @@
 
 .form-container {
     width: 100%;
-    max-width: 340px;
-    background: rgba(255,255,255,0.07);
-    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.18);
-    padding: 2.2rem 2rem 1.5rem 2rem;
-    margin-top: 74px;
-    border-radius: 18px;
-    border: 1.5px solid rgba(255,255,255,0.13);
-    backdrop-filter: blur(8px);
+    max-width: 320px;
+    background-color: rgba(26, 26, 26, 0.95) !important;
+    padding: 2rem;
+    color: rgba(243, 244, 246, 1);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+    border: 1px solid rgba(255, 255, 255, 0.1) !important;
 }
 
-.form-label {
-    color: #e5e7eb;
-    font-weight: 500;
-    letter-spacing: 0.01em;
+.form-container .form-label {
+    color: rgba(156, 163, 175, 1);
 }
 
-.form-control {
-    border: 1.5px solid rgba(167, 139, 250, 0.18);
-    background: rgba(18, 18, 28, 0.92);
-    color: #f3f4f6;
-    font-size: 1rem;
-    border-radius: 10px;
-    transition: border-color 0.2s, background 0.2s;
+.form-container .form-control {
+    border: 1px solid rgba(60, 60, 60, 1);
+    background-color: rgba(18, 18, 18, 1);
+    color: rgba(243, 244, 246, 1);
 }
 
-.form-control:focus {
-    border-color: rgba(167, 139, 250, 0.7);
-    background: rgba(30, 30, 50, 1);
-    box-shadow: 0 0 0 2px rgba(167, 139, 250, 0.13);
-    color: #f3f4f6;
+.form-container .form-control:focus {
+    border-color: rgba(167, 139, 250);
+    background-color: rgba(30, 30, 30, 1);
+    box-shadow: none;
+    color: rgba(243, 244, 246, 1);
 }
 
-.btn-primary {
-    background: linear-gradient(90deg, #a78bfa 0%, #818cf8 100%);
+.form-container .btn-primary {
+    background-color: rgba(167, 139, 250, 1);
     border: none;
-    color: #181824;
-    font-weight: 600;
-    border-radius: 10px;
-    transition: background 0.3s, transform 0.2s;
+    color: rgba(17, 24, 39, 1);
+    transition: background-color 0.3s ease, transform 0.2s ease;
 }
 
-.btn-primary:hover {
-    background: linear-gradient(90deg, #bfa7fa 0%, #a5b4fc 100%);
+.form-container .btn-primary:hover {
+    background-color: rgba(147, 119, 230, 1);
     transform: translateY(-2px);
-    color: #181824;
+    color: rgba(17, 24, 39, 1);
 }
 
-.btn-primary:active {
+.form-container .btn-primary:active {
     transform: translateY(0);
 }
 
-.text-muted {
-    color: #bdbdbd !important;
+.form-container .text-muted {
+    color: rgba(156, 163, 175, 1) !important;
+}
+
+.form-container .text-muted:hover {
+    text-decoration: underline rgba(167, 139, 250, 1) !important;
 }
 
 .background {
@@ -62,8 +57,8 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    background: #0d0d12;
-    background: linear-gradient(135deg, #0d0d12 25%, #181824 25%, #181824 50%, #0d0d12 50%, #0d0d12 75%, #181824 75%, #181824);
+    background: #121212;
+    background: linear-gradient(135deg, #121212 25%, #1a1a1a 25%, #1a1a1a 50%, #121212 50%, #121212 75%, #1a1a1a 75%, #1a1a1a);
     background-size: 40px 40px;
     animation: move 8s linear infinite;
 }
