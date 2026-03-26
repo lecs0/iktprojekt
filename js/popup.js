@@ -3,7 +3,6 @@ const closePopup = document.getElementById('closePopup');
 const gifUrl = 'imgs/foxy-jumpscare.gif';
 const jumpscareSoundUrl = 'imgs/foxy-jumpscare.mp3';
 const GIF_DURATION_MS = 850;
-const START_DELAY_MS = 4000;
 let timeoutId = null;
 let audioUnlocked = false;
 let pendingAudioGesture = false;
@@ -63,13 +62,16 @@ function getGifElements() {
 
 
 
-function getRandomPercentage(perc) {
-    const ranum = Math.floor(Math.random() * 10);
-    if (ranum < perc) {
-        return true;
-    } else {
-        return false;
+function getRandomNum(type, perc) {
+    if (type == "percent") {
+        const ranum = Math.floor(Math.random() * 10);
+        return ranum < perc;
     }
+    else if (type == "number") {
+        const ranum = Math.floor(Math.random() * 4000);
+        return ranum;
+    }
+
 }
 
 
@@ -136,19 +138,18 @@ function hideGif(){
 
 
 function runLoadTriggers() {
-    const willShowPopup = getRandomPercentage(3);
+    const willShowPopup = getRandomNum("percent", 3);
 
     if (willShowPopup) {
         showPopup();
         return;
     }
-
     setTimeout(() => {
-        const willShowJumpscare = getRandomPercentage(1);
+        const willShowJumpscare = getRandomNum("percent", 1);
         if (willShowJumpscare) {
             showGif();
         }
-    }, START_DELAY_MS);
+    }, getRandomNum("number", 2000));
 }
 
 

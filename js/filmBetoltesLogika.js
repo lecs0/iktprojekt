@@ -264,6 +264,7 @@ function initMoviesSearch() {
 // id megkereses az urlbol
 function getMovieId() {
     const params = new URLSearchParams(window.location.search);
+
     return params.get('id');
 }
 
@@ -275,9 +276,17 @@ function displayMovieDetails() {
 
     if (!movieCont) return; // itt is azt nezem hogy nem e szar oldalon vagyunk
 
+
+
+
     if (movieId >= movies.length || movieId < 0) {
         title = "Error - Film nem található";
-        movieCont.innerHTML = '<h1 style="margin-top: 50vh; text-align: center;">NE is próbáld megváltoztatni az URL-t, mert nem fog működni!<br><span style="color: red;">Buta cigany!</span></h1>';
+        if (movieId == 67) {
+            movieCont.innerHTML = '<h1 style="margin-top: 50vh; text-align: center;">Hallod te cigany!<br>ez nem...<br><span style="color: red;">vicces</span></h1>';
+        }
+        else {
+            movieCont.innerHTML = '<h1 style="margin-top: 50vh; text-align: center;">NE is próbáld megváltoztatni az URL-t, mert nem fog működni!<br><span style="color: red;">TE cigány!</span></h1>';
+        }
         return;
     }
 
