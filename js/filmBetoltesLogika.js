@@ -285,16 +285,16 @@ function displayMovieDetails() {
     if (!movieData) return;
     
     movieCont.innerHTML = `
-<section class="movie-detail py-4 py-lg-5 mt-5">
-    <div class="container-fluid px-0">
-        <div class="row g-4 align-items-start">
+<section class="movie-detail py-4 py-lg-5 mt-2">
+    <div class="container-fluid">
+        <div class="row">
             <div class="col-12 col-sm-6 col-lg-3">
-                <div class="movie-poster d-block mb-1 mt-5">
+                <div class="movie-poster d-block mb-1 mt-2">
                     <img src="${movieData.img}" alt="${movieData.title} poster" class="img-fluid rounded-3">
                 </div>
             </div>
             <div class="col-12 col-lg-9">
-                <h2 class="movie-title mb-3 mt-5">${movieData.title}</h2>
+                <h2 class="movie-title mb-3 mt-2">${movieData.title}</h2>
                 <p class="movie-meta mb-3">Műfaj: ${movieData.genre} <br>Megjelenés: ${movieData.release} <br>Hossz: ${movieData.duration} perc<br>Ország: ${movieData.country}</p>
                 <p class="movie-description mb-4">${movieData.description}</p>
 
@@ -312,7 +312,7 @@ function displayMovieDetails() {
             </div>
         </div>
 
-        <div class="video-container mt-4 mt-lg-5 mb-2">
+        <div class="video-container mb-5 mt-5">
             <div class="ratio ratio-16x9">
                 <iframe src="${movieData.movie}" allowfullscreen webkitallowfullscreen mozallowfullscreen></iframe>
             </div>
