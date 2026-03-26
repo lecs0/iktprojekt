@@ -269,10 +269,10 @@ function getMovieId() {
 }
 
 // rendes film oldala erre is kell majd egy kis atalakitas
-function displayMovieDetails() {
+function displayMovieDetails() {    
     const movieId = getMovieId() || 0;
     const movieCont = document.getElementById("movieCont");
-    document.title = movies[movieId] ? movies[movieId].title : "Film Részletek"; // beallitom a titlet a film nevre
+    document.title = movies[movieId] ? movies[movieId].title : "Filmek"; // beallitom a titlet a film nevre
 
     if (!movieCont) return; // itt is azt nezem hogy nem e szar oldalon vagyunk
 
