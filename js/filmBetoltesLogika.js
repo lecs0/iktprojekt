@@ -416,8 +416,14 @@ function displayMovieDetails() {
 
     if (movieId >= movies.length || movieId < 0) {
         title = "Error - Film nem található";
+        if (movieId == 13) {
+            movieCont.innerHTML = '<h1 style="margin-top: 50vh; text-align: center;">Hallod te cigany!<br>ez nem...<br><span style="color: red;">vicces</span></h1>';
+        }
         if (movieId == 67) {
             movieCont.innerHTML = '<h1 style="margin-top: 50vh; text-align: center;">Hallod te cigany!<br>ez nem...<br><span style="color: red;">vicces</span></h1>';
+        }
+        if (movieId == 69) {
+            movieCont.innerHTML = '<h1 style="margin-top: 50vh; text-align: center;">Hallod te cigany!<br>ez nem vicces...<br><span style="color: red;">TE perverz</span></h1>';
         }
         else {
             movieCont.innerHTML = '<h1 style="margin-top: 50vh; text-align: center;">NE is próbáld megváltoztatni az URL-t, mert nem fog működni!<br><span style="color: red;">TE cigány!</span></h1>';

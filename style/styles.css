@@ -268,8 +268,10 @@ main {
 }
 
 .poster-card span {
-    display: block;
-    padding: 0.55rem 0.65rem 0.7rem;
+    display: grid;
+    place-items: center;
+    height: 70px;
+    padding: 0 0.65rem;
     font-size: 0.9rem;
     color: rgba(243, 244, 246, 1);
     font-weight: bold;
