@@ -220,17 +220,13 @@ main {
 }
 
 .movies-search-input {
-    border-radius: 999px;
-    background: rgba(15, 15, 17, 0.86) !important;
-    border: 1px solid rgba(255, 255, 255, 0.12) !important;
-    color: rgba(243, 244, 246, 1) !important;
+    border: 1px solid rgba(255, 255, 255, 0.12);
     padding: 0.55rem 1rem;
     transition: border-color 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
 }
 
 .movies-search-input:focus {
     border-color: rgba(167, 139, 250, 0.72) !important;
-    background: rgba(23, 23, 27, 0.95) !important;
     box-shadow: 0 0 0 3px rgba(167, 139, 250, 0.16) !important;
 }
 
@@ -415,14 +411,6 @@ main {
     .movies-search-inline {
         width: 100%;
     }
-
-    .poster-card img {
-        height: 150px;
-    }
-
-    .movie-detail {
-        margin-top: 68px;
-    }
 }
 
 @media (max-width: 480px) {
@@ -535,7 +523,8 @@ main {
     }
 
     .poster-card img {
-        height: 150px;
+        height: 70%;
+        width: 70%;
     }
 }
 
