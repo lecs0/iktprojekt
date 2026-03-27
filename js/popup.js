@@ -58,10 +58,6 @@ function getGifElements() {
     };
 }
 
-
-
-
-
 function getRandomNum(type, perc) {
     if (type == "percent") {
         const ranum = Math.floor(Math.random() * 10);
@@ -73,8 +69,6 @@ function getRandomNum(type, perc) {
     }
 
 }
-
-
 
 function showPopup() {
     const popup = getPopupElement();
@@ -96,11 +90,6 @@ window.addEventListener('click', (event) => {
         popup.style.display = 'none';
     }
 });
-
-
-
-
-
 
 function showGif(){
     if (jumpscareShown || jumpscareActive) return;

@@ -120,21 +120,22 @@
     min-height: 100vh;
     background: #0f0f10;
     color: rgba(243, 244, 246, 1);
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
 }
-
 
 .app-navbar {
     background: linear-gradient(to bottom, rgba(10, 10, 10, 0.92), rgba(10, 10, 10, 0.32));
     backdrop-filter: blur(10px);
     -webkit-backdrop-filter: blur(10px);
-    border-bottom: 1px solid rgba(255,255,255,0.10);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.10);
     box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.18);
 }
+
 .app-navbar .nav-link {
     color: rgba(229, 231, 235, 0.97) !important;
     transition: color 0.2s;
 }
+
 .app-navbar .nav-link:hover,
 .app-navbar .nav-link:focus,
 .app-navbar .nav-link.active {
@@ -161,342 +162,6 @@ main {
 
 .hero {
     min-height: 90vh;
-    background-size: cover;
-}
-
-.hero-backdrop {
-
-    background: linear-gradient(to right, rgba(12, 12, 12, 0.1) 0%, rgba(12, 12, 12, 0.1)), linear-gradient(to top, rgba(15, 15, 16, 1) 20%, rgba(15, 15, 16, 0.4) 60%);
-}
-
-.hero-content {
-    z-index: 1;
-}
-
-.hero-tag {
-    color: rgba(167, 139, 250, 1);
-    font-weight: 600;
-}
-
-.hero h1 {
-    font-size: clamp(2rem, 6vw, 4rem);
-    font-weight: 800;
-}
-
-.hero-play,
-.hero-more {
-    padding: 0.6rem 1.4rem;
-    border-radius: 8px;
-    font-weight: 600;
-}
-
-.hero-play {
-    background: rgba(243, 244, 246, 1);
-    color: rgba(10, 10, 10, 1);
-}
-
-.hero-more {
-    background: rgba(75, 85, 99, 0.7);
-    color: rgba(243, 244, 246, 1);
-}
-
-.movies-header-title {
-    font-size: 2rem;
-    font-weight: 700;
-}
-
-.movies-search-inline {
-    min-width: 260px;
-    width: min(420px, 48vw);
-}
-
-.movies-search-input {
-    background: rgba(15, 15, 17, 0.86) !important;
-    border: 1px solid rgba(255, 255, 255, 0.12) !important;
-    color: rgba(243, 244, 246, 1) !important;
-    padding: 0.55rem 1rem;
-    transition: border-color 0.2s, box-shadow 0.2s, background 0.2s;
-}
-
-.movies-search-input:focus {
-    border-color: rgba(167, 139, 250, 0.72) !important;
-    background: rgba(23, 23, 27, 0.95) !important;
-    box-shadow: 0 0 0 3px rgba(167, 139, 250, 0.16) !important;
-}
-
-.movies-search-result {
-    display: block;
-    color: rgba(156, 163, 175, 1);
-    margin-bottom: 1rem;
-    text-align: right;
-}
-
-.movies-search-result-empty {
-    color: rgba(248, 113, 113, 1);
-}
-
-.content-rail h2 {
-    font-size: 1.3rem;
-    margin-top: -0.2rem;
-    margin-bottom: 0.75rem;
-    color: rgba(243, 244, 246, 1);
-}
-
-.poster-card {
-    position: relative;
-    background: rgba(31, 31, 31, 0.9);
-    border-radius: 10px;
-    overflow: hidden;
-    border: 1px solid rgba(255, 255, 255, 0.08);
-    transition: transform 0.25s, box-shadow 0.25s, border-color 0.25s;
-}
-
-.poster-card:hover {
-    transform: translateY(-4px) scale(1.02);
-    border-color: rgba(167, 139, 250, 0.6);
-    box-shadow: 0 14px 30px rgba(0, 0, 0, 0.45);
-}
-
-.poster-card img {
-    width: 100%;
-    height: 280px;
-    object-fit: fill;
-    display: block;
-}
-
-.poster-card span {
-    display: block;
-    padding: 0.55rem 0.65rem 0.7rem;
-    font-size: 0.9rem;
-    color: rgba(243, 244, 246, 1);
-    font-weight: bold;
-    text-align: center;
-}
-
-.poster-card.wide img {
-    height: 160px;
-}
-
-.stream-footer {
-    color: rgba(156, 163, 175, 1);
-    text-align: center;
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    min-height: 80px;
-}
-
-.movie-poster img {
-    width: 100%;
-    max-width: 260px;
-    height: auto;
-    border: 5px outset white;
-}
-
-.like-button {
-    margin: 0 0 1.5rem 0;
-    position: relative;
-    cursor: pointer;
-    display: flex;
-    height: 48px;
-    width: 136px;
-    border-radius: 16px;
-    border: none;
-    background-color: #1d1d1d;
-    overflow: hidden;
-    box-shadow: inset -2px -2px 5px rgba(0, 0, 0, 0.1), inset 2px 2px 5px rgba(0, 0, 0, 0.1), 4px 4px 10px rgba(0, 0, 0, 0.5), -2px -2px 8px rgba(255, 255, 255, 0.1);
-}
-
-.like {
-    width: 70%;
-    height: 100%;
-    display: flex;
-    cursor: pointer;
-    align-items: center;
-    justify-content: space-evenly;
-}
-
-.like-icon {
-    fill: white;
-    height: 28px;
-    width: 28px;
-}
-
-.like-text {
-    color: white;
-    font-size: 16px;
-    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-}
-
-.like-count {
-    right: 0;
-    width: 30%;
-    height: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    color: #717070;
-    font-size: 16px;
-    border-left: 2px solid #4e4e4e;
-    transition: all 0.5s;
-}
-
-.popup {
-    display: none;
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0, 0, 0, 0.5);
-    justify-content: center;
-    align-items: center;
-    z-index: 10000;
-}
-
-.popup-content {
-    text-align: center;
-}
-
-@media (max-width: 768px) {
-    .form-container {
-        max-width: 90%;
-        margin: 0 1rem;
-    }
-
-    .ad-container {
-        max-width: 280px;
-        padding: 15px;
-    }
-
-    .ad-bottom-right {
-        bottom: 10px;
-        right: 10px;
-        left: 10px;
-        top: auto;
-    }
-
-    .ad-container img:not(.close-btn) {
-        max-width: 100%;
-        height: 140px;
-    }
-
-    .stream-logo {
-        height: 36px;
-    }
-
-    .hero {
-        min-height: 62vh;
-        background-position: 55% center;
-    }
-
-    .hero-actions {
-        flex-wrap: wrap;
-    }
-
-    .movies-header-row {
-        align-items: flex-start;
-        flex-direction: column;
-    }
-
-    .movies-search-inline {
-        width: 100%;
-    }
-
-    .poster-card img {
-        height: 150px;
-    }
-
-    .movie-detail {
-        margin-top: 68px;
-    }
-
-    .movie-poster img {
-        max-width: 220px;
-    }
-}
-
-@media (max-width: 480px) {
-    .form-container {
-        padding: 1rem;
-        max-width: 95%;
-    }
-
-    .ad-container {
-        max-width: 90%;
-        padding: 12px;
-    }
-
-    .ad-container img:not(.close-btn) {
-        height: 120px;
-    }
-
-    .ad-container p {
-        font-size: 13px;
-    }
-
-    .hero h1 {
-        font-size: 1.8rem;
-    }
-
-    .hero-description {
-        font-size: 0.92rem;
-    }
-
-    .poster-card img,
-    .poster-card.wide img {
-        height: 132px;
-    }
-
-    .movie-poster img {
-        max-width: 180px;
-        margin: 0 auto;
-    }
-
-    .like-button {
-        width: 120px;
-        height: 44px;
-    }
-
-    .like-text,
-    .like-count {
-        font-size: 14px;
-    }
-}
-
-.custom-navbar {
-    background: rgba(20, 20, 20, 0.7);
-    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
-    backdrop-filter: blur(8px);
-    -webkit-backdrop-filter: blur(8px);
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
-}
-
-.custom-navbar .nav-link {
-    color: rgba(229, 231, 235, 0.95);
-    transition: color 0.2s;
-}
-
-.custom-navbar .nav-link:hover,
-.custom-navbar .nav-link:focus,
-.custom-navbar .nav-link.active {
-    color: rgba(167, 139, 250, 1);
-}
-
-main {
-    flex: 1;
-}
-
-.stream-logo {
-    height: 42px;
-    width: auto;
-    object-fit: contain;
-}
-
-.hero {
-    min-height: 90vh;
     align-items: end;
     background-size: cover;
 }
@@ -504,7 +169,7 @@ main {
 .hero-backdrop {
     inset: 0;
     background: linear-gradient(to right, rgba(12, 12, 12, 0.1) 0%, rgba(12, 12, 12, 0.1)),
-    linear-gradient(to top, rgba(15, 15, 16, 1) 20%, rgba(15, 15, 16, 0.4) 60%);
+        linear-gradient(to top, rgba(15, 15, 16, 1) 20%, rgba(15, 15, 16, 0.4) 60%);
 }
 
 .hero-content {
@@ -518,16 +183,9 @@ main {
     font-weight: 600;
 }
 
-.hero-description {
-    max-width: 560px;
-    color: rgba(209, 213, 219, 1);
-    font-size: 1rem;
-    line-height: 1.6;
-}
-
-.hero-actions {
-    display: flex;
-    gap: 0.75rem;
+.hero h1 {
+    font-size: clamp(2rem, 6vw, 4rem);
+    font-weight: 800;
 }
 
 .hero-play,
@@ -549,10 +207,6 @@ main {
 .hero-more {
     background: rgba(75, 85, 99, 0.7);
     color: rgba(243, 244, 246, 1);
-}
-
-.content-rail {
-    margin-bottom: 30px;
 }
 
 .movies-header-title {
@@ -641,6 +295,214 @@ main {
     min-height: 80px;
 }
 
+.movie-poster img {
+    width: 100%;
+    max-width: 260px;
+    height: auto;
+    border: 5px outset white;
+}
+
+.like-button {
+    margin: 0 0 1.5rem 0;
+    position: relative;
+    cursor: pointer;
+    display: flex;
+    height: 48px;
+    width: 136px;
+    border-radius: 16px;
+    border: none;
+    background-color: #1d1d1d;
+    overflow: hidden;
+    box-shadow:
+        inset -2px -2px 5px rgba(0, 0, 0, 0.1),
+        inset 2px 2px 5px rgba(0, 0, 0, 0.1),
+        4px 4px 10px rgba(0, 0, 0, 0.5),
+        -2px -2px 8px rgba(255, 255, 255, 0.1);
+}
+
+.like {
+    width: 70%;
+    height: 100%;
+    display: flex;
+    cursor: pointer;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+.like-icon {
+    fill: white;
+    height: 28px;
+    width: 28px;
+}
+
+.like-text {
+    color: white;
+    font-size: 16px;
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.like-count {
+    right: 0;
+    width: 30%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #717070;
+    font-size: 16px;
+    border-left: 2px solid #4e4e4e;
+    transition: all 0.5s ease-out;
+}
+
+.popup {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    justify-content: center;
+    align-items: center;
+    z-index: 10000;
+}
+
+.popup-content {
+    text-align: center;
+}
+
+@media (max-width: 768px) {
+    .form-container {
+        max-width: 90%;
+        margin: 0 1rem;
+    }
+
+    .ad-container {
+        max-width: 280px;
+        padding: 15px;
+    }
+
+    .ad-bottom-right {
+        bottom: 10px;
+        right: 10px;
+        left: 10px;
+        top: auto;
+    }
+
+    .ad-container img:not(.close-btn) {
+        max-width: 100%;
+        height: 140px;
+    }
+
+    .stream-logo {
+        height: 36px;
+    }
+
+    .hero {
+        min-height: 62vh;
+        background-position: 55% center;
+    }
+
+    .hero-actions {
+        flex-wrap: wrap;
+    }
+
+    .movies-header-row {
+        align-items: flex-start;
+        flex-direction: column;
+    }
+
+    .movies-search-inline {
+        width: 100%;
+    }
+
+    .poster-card img {
+        height: 150px;
+    }
+
+    .movie-detail {
+        margin-top: 68px;
+    }
+}
+
+@media (max-width: 480px) {
+    .form-container {
+        padding: 1rem;
+        max-width: 95%;
+    }
+
+    .ad-container {
+        max-width: 90%;
+        padding: 12px;
+    }
+
+    .ad-container img:not(.close-btn) {
+        height: 120px;
+    }
+
+    .ad-container p {
+        font-size: 13px;
+    }
+
+    .hero h1 {
+        font-size: 1.8rem;
+    }
+
+    .hero-description {
+        font-size: 0.92rem;
+    }
+
+    .poster-card img,
+    .poster-card.wide img {
+        height: 132px;
+    }
+
+    .like-button {
+        width: 120px;
+        height: 44px;
+    }
+
+    .like-text,
+    .like-count {
+        font-size: 14px;
+    }
+}
+
+.custom-navbar {
+    background: rgba(20, 20, 20, 0.7);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+}
+
+.custom-navbar .nav-link {
+    color: rgba(229, 231, 235, 0.95);
+    transition: color 0.2s;
+}
+
+.custom-navbar .nav-link:hover,
+.custom-navbar .nav-link:focus,
+.custom-navbar .nav-link.active {
+    color: rgba(167, 139, 250, 1);
+}
+
+.hero-description {
+    max-width: 560px;
+    color: rgba(209, 213, 219, 1);
+    font-size: 1rem;
+    line-height: 1.6;
+}
+
+.hero-actions {
+    display: flex;
+    gap: 0.75rem;
+}
+
+.content-rail {
+    margin-bottom: 30px;
+}
+
 .login-page {
     display: flex;
     flex-direction: column;
@@ -709,59 +571,8 @@ main {
     font-weight: 900;
 }
 
-.movie-poster img {
-    width: 100%;
-    max-width: 260px;
-    height: auto;
-    border: 5px outset white;
-}
-
 #heart {
     display: none;
-}
-
-.like-button {
-    margin: 0 0 1.5rem 0;
-    cursor: pointer;
-    height: 48px;
-    width: 136px;
-    background-color: #1d1d1d;
-    overflow: hidden;
-    box-shadow:
-        inset -2px -2px 5px rgba(0, 0, 0, 0.1),
-        inset 2px 2px 5px rgba(0, 0, 0, 0.1),
-        4px 4px 10px rgba(0, 0, 0, 0.5),
-        -2px -2px 8px rgba(255, 255, 255, 0.1);
-}
-
-.like {
-    width: 70%;
-    height: 100%;
-    display: flex;
-    cursor: pointer;
-    align-items: center;
-    justify-content: space-evenly;
-}
-
-.like-icon {
-    fill: white;
-    height: 28px;
-    width: 28px;
-}
-
-.like-text {
-    color: white;
-    font-size: 16px;
-    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-}
-
-.like-count {
-    width: 30%;
-    height: 100%;
-    color: #717070;
-    font-size: 16px;
-    border-left: 2px solid #4e4e4e;
-    transition: all 0.5s ease-out;
 }
 
 .like-count.two {
@@ -791,20 +602,6 @@ main {
     100% {
         transform: scale(1.2);
     }
-}
-
-.popup {
-    display: none;
-    width: 100%;
-    height: 100%;
-    background: rgba(0, 0, 0, 0.5);
-    justify-content: center;
-    align-items: center;
-    z-index: 10000;
-}
-
-.popup-content {
-    text-align: center;
 }
 
 @media (max-width: 768px) {

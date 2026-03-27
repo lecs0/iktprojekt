@@ -6,7 +6,6 @@ const ads = [
     { text: "NV Casino 400.000,000Ft bónusz és 400 ingyen pörgetés. Játssz most!", link: "https://www.youtube.com/watch?v=yUqFpPj7jOs", image: "imgs/nvcasino-2-6814b768bc19b7.60142442.webp"}
 ];
 
-
 function getRandomAd() {
     const randomIndex = Math.floor(Math.random() * ads.length);
     return ads[randomIndex];
@@ -25,5 +24,4 @@ function loadAd() {
         `;
     }
 }
-
 document.addEventListener("DOMContentLoaded", loadAd);

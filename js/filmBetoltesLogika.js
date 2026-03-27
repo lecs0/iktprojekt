@@ -1,9 +1,3 @@
-//vegre sikerult nagynehezen foznom valamit es hat mondjuk azt hogy repetazni is fogunk
-//meg csak a logika van kesz a tobbi szar
-
-
-
-// Filmek lista
 const movies = [
     { 
         id: 0, 
@@ -118,8 +112,6 @@ const movies = [
     }
 ];
 
-// halo mukodj szex 8
-
 function displayHero(){
     const heroCont = document.getElementsByClassName("hero")[0];
 
@@ -142,9 +134,6 @@ function displayHero(){
     `;
 }
 
-//<p class="hero-description">${movie.description}</p>
-
-// hat ez nemtudom hogy jo lesz de majd megnezzuk mert ez letrehoz annyi postert amennyi film van de ezt lehet at kene alakitani a tamplateesre
 function createMovieCard(movie) {
     const col = document.createElement("div");
     col.className = "col-6 col-md-4 col-lg-3 col-xl-2";
@@ -202,8 +191,6 @@ function displayMovieList() {
   }
 }
 
-
-// kereses (lopott az egesz(kicsit megvaltoztatva))
 function normalizeSearchText(value) {
     return String(value || '').toLowerCase().trim();
 }
@@ -260,24 +247,18 @@ function initMoviesSearch() {
     applySearch();
 }
 
-
-// id megkereses az urlbol
 function getMovieId() {
     const params = new URLSearchParams(window.location.search);
 
     return params.get('id');
 }
 
-// rendes film oldala erre is kell majd egy kis atalakitas
 function displayMovieDetails() {    
     const movieId = getMovieId() || 0;
     const movieCont = document.getElementById("movieCont");
-    document.title = movies[movieId] ? movies[movieId].title : "Filmek"; // beallitom a titlet a film nevre
+    document.title = movies[movieId] ? movies[movieId].title : "Filmek";
 
-    if (!movieCont) return; // itt is azt nezem hogy nem e szar oldalon vagyunk
-
-
-
+    if (!movieCont) return;
 
     if (movieId >= movies.length || movieId < 0) {
         title = "Error - Film nem található";
@@ -292,7 +273,6 @@ function displayMovieDetails() {
 
     const movieData = movies[movieId];
     if (!movieData) return;
-    
     movieCont.innerHTML = `
 <section class="movie-detail py-4 py-lg-5 mt-2">
     <div class="container-fluid">
@@ -332,23 +312,12 @@ function displayMovieDetails() {
     
 }
 
-
-
-
-// ez a varazslat ami eldonti hogy melyik oldalon is vagyink
 window.onload = function() {
     if (document.getElementById('poster-row')) {
         displayHero();
-        displayMovieList(); // ha a main oldalon vagyunk
+        displayMovieList();
         initMoviesSearch();
     } else if (document.getElementById('movieCont')) {
-        displayMovieDetails(); // ez meg a film
+        displayMovieDetails();
     }
 };
-
-
-//utalom a ciganyokat
-//utalom a html-t
-//mostmar a bootstrappet is 
-//ez ra fog kerulni az ongyilkossagi ok listamra
-//meg mindig nemtudok jsben programozni :C
