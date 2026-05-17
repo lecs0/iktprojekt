@@ -271,7 +271,7 @@ const movies = [
         img: "https://imgs.search.brave.com/gyixLSTwf52chTlyxiGFHizEz4Da8mcKpKRfnn8rpuY/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9tb250/YXpzbWFnYXppbi5o/dS93cC1jb250ZW50/L3VwbG9hZHMvMjAy/MS8xMC9lbGt1cnR1/ay5qcGc",
         description: "Gyurcsány Ferenc szájából hangzott el a mára negatív előjellel ugyan, de legendássá vált őszödi beszéd 2006. május 26-án az azt megelőző másfél év kormányzásáról. Az őszödi beszéd 15 évvel ezelőtt, 2006. szeptember 17-én szivárgott ki, és a rendszerváltás utáni évek egyik legsúlyosabb politikai válságát okozta. Gyurcsány Ferenc őszödi beszéde tele volt bicskanyitogató, a teljes magyar társadalmat sokkoló részletekkel. Megmutatta, hogy mit gondol az általa lenézett választókról, az országról, miközben mit sem sejtett arról, hogy az egész ország politikáját megváltoztatja vele.",
         genre: "Beszéd",
-        release: "2009",
+        release: "2006",
         duration: "0,4",
         country: "Magyarország",
         movie: "https://video15.videa.hu/static/480p/8.1780711.1901052.1.8.297.297?md5=ygt8m0bNVKjP9PHd2wBF9Q&expires=1779056703"
